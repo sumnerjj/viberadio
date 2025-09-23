@@ -214,6 +214,24 @@
   color: #a8841a;
 }
 
+.error-message {
+  font-family: 'Courier New', monospace;
+  font-size: 0.6rem;
+  color: #ff6b35;
+  margin-top: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow:
+    0 0 2px rgba(255, 107, 53, 0.6),
+    0 1px 1px rgba(0, 0, 0, 0.8);
+  animation: error-pulse 2s ease-in-out infinite;
+}
+
+@keyframes error-pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
 /* Audio Controls */
 .audio-controls {
   display: flex;
