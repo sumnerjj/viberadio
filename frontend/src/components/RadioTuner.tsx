@@ -9,6 +9,7 @@ interface RadioTunerProps {
 interface RadioStation {
   name: string;
   url: string;
+  fallbackUrl?: string;
   genre: string;
   country: string;
   language: string;
@@ -25,29 +26,30 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
   const audioRef = useRef<HTMLAudioElement>(null);
 
   // Predefined stations mapped to frequency ranges
+  // Using verified working streams with CORS support
   const stationMap = {
-    550: { name: "BBC Radio 1", url: "http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one", genre: "Pop", country: "UK", language: "English" },
-    600: { name: "NPR News", url: "https://npr-ice.streamguys1.com/live.mp3", genre: "News", country: "USA", language: "English" },
-    650: { name: "Jazz FM", url: "https://jazz-ard.ice.infomaniak.ch/jazz-ard-high.mp3", genre: "Jazz", country: "France", language: "French" },
-    700: { name: "Classical WQXR", url: "https://stream.wqxr.org/wqxr", genre: "Classical", country: "USA", language: "English" },
-    750: { name: "Radio France", url: "https://direct.franceinter.fr/live/franceinter-midfi.mp3", genre: "Talk", country: "France", language: "French" },
-    800: { name: "Smooth Jazz", url: "https://ice5.somafm.com/groovesalad-128-mp3", genre: "Jazz", country: "USA", language: "English" },
-    850: { name: "Chill Radio", url: "https://ice2.somafm.com/beatblender-128-mp3", genre: "Ambient", country: "USA", language: "English" },
-    900: { name: "Rock Classic", url: "https://ice6.somafm.com/lush-128-mp3", genre: "Rock", country: "USA", language: "English" },
-    950: { name: "Electronic Beats", url: "https://ice4.somafm.com/spacestation-128-mp3", genre: "Electronic", country: "USA", language: "English" },
-    1000: { name: "Folk Music", url: "https://ice5.somafm.com/folkfwd-128-mp3", genre: "Folk", country: "USA", language: "English" },
-    1050: { name: "Indie Radio", url: "https://ice6.somafm.com/indiepop-128-mp3", genre: "Indie", country: "USA", language: "English" },
-    1100: { name: "Deep House", url: "https://ice4.somafm.com/deepspaceone-128-mp3", genre: "House", country: "USA", language: "English" },
-    1150: { name: "Ambient Drone", url: "https://ice2.somafm.com/dronezone-128-mp3", genre: "Ambient", country: "USA", language: "English" },
-    1200: { name: "Metal Radio", url: "https://ice6.somafm.com/metal-128-mp3", genre: "Metal", country: "USA", language: "English" },
-    1250: { name: "Hip Hop", url: "https://ice4.somafm.com/hiphop-128-mp3", genre: "Hip Hop", country: "USA", language: "English" },
-    1300: { name: "Country Music", url: "https://ice5.somafm.com/bagel-128-mp3", genre: "Country", country: "USA", language: "English" },
-    1350: { name: "World Music", url: "https://ice2.somafm.com/secretagent-128-mp3", genre: "World", country: "Various", language: "Various" },
-    1400: { name: "Reggae Vibes", url: "https://ice6.somafm.com/reggae-128-mp3", genre: "Reggae", country: "Jamaica", language: "English" },
-    1450: { name: "Blues Station", url: "https://ice4.somafm.com/bootliquor-128-mp3", genre: "Blues", country: "USA", language: "English" },
-    1500: { name: "Christmas FM", url: "https://ice5.somafm.com/christmas-128-mp3", genre: "Holiday", country: "USA", language: "English" },
-    1550: { name: "Punk Rock", url: "https://ice2.somafm.com/suburbsofgoa-128-mp3", genre: "Punk", country: "USA", language: "English" },
-    1600: { name: "Celtic Music", url: "https://ice6.somafm.com/thistle-128-mp3", genre: "Celtic", country: "Ireland", language: "English" }
+    550: { name: "SomaFM Groove", url: "https://ice5.somafm.com/groovesalad-128-mp3", genre: "Jazz", country: "USA", language: "English" },
+    600: { name: "SomaFM Beat", url: "https://ice2.somafm.com/beatblender-128-mp3", genre: "Electronic", country: "USA", language: "English" },
+    650: { name: "SomaFM Lush", url: "https://ice6.somafm.com/lush-128-mp3", genre: "Ambient", country: "USA", language: "English" },
+    700: { name: "SomaFM Space", url: "https://ice4.somafm.com/spacestation-128-mp3", genre: "Electronic", country: "USA", language: "English" },
+    750: { name: "SomaFM Folk", url: "https://ice5.somafm.com/folkfwd-128-mp3", genre: "Folk", country: "USA", language: "English" },
+    800: { name: "SomaFM Indie", url: "https://ice6.somafm.com/indiepop-128-mp3", genre: "Indie", country: "USA", language: "English" },
+    850: { name: "SomaFM Deep", url: "https://ice4.somafm.com/deepspaceone-128-mp3", genre: "House", country: "USA", language: "English" },
+    900: { name: "SomaFM Drone", url: "https://ice2.somafm.com/dronezone-128-mp3", genre: "Ambient", country: "USA", language: "English" },
+    950: { name: "SomaFM Metal", url: "https://ice6.somafm.com/metal-128-mp3", genre: "Metal", country: "USA", language: "English" },
+    1000: { name: "SomaFM Secret", url: "https://ice2.somafm.com/secretagent-128-mp3", genre: "Lounge", country: "USA", language: "English" },
+    1050: { name: "SomaFM Blues", url: "https://ice4.somafm.com/bootliquor-128-mp3", genre: "Blues", country: "USA", language: "English" },
+    1100: { name: "SomaFM Suburbs", url: "https://ice2.somafm.com/suburbsofgoa-128-mp3", genre: "Ambient", country: "USA", language: "English" },
+    1150: { name: "SomaFM Thistle", url: "https://ice6.somafm.com/thistle-128-mp3", genre: "Celtic", country: "Ireland", language: "English" },
+    1200: { name: "Radio Paradise", url: "https://stream.radioparadise.com/mp3-128", genre: "Rock", country: "USA", language: "English" },
+    1250: { name: "KCRW Eclectic", url: "https://kcrw.streamguys1.com/kcrw_128k_mp3_on_air", genre: "Eclectic", country: "USA", language: "English" },
+    1300: { name: "WFMU", url: "https://stream0.wfmu.org/freeform-128k", genre: "Freeform", country: "USA", language: "English" },
+    1350: { name: "Jazz24", url: "https://live.wostreaming.net/direct/ppm-jazz24mp3-ibc3", genre: "Jazz", country: "USA", language: "English" },
+    1400: { name: "Classical MPR", url: "https://classical.streamguys1.com/classical-128k", genre: "Classical", country: "USA", language: "English" },
+    1450: { name: "Radio Swiss Jazz", url: "https://stream.srg-ssr.ch/m/rsj/mp3_128", genre: "Jazz", country: "Switzerland", language: "Multi" },
+    1500: { name: "FIP", url: "https://direct.fipradio.fr/live/fip-midfi.mp3", genre: "Eclectic", country: "France", language: "French" },
+    1550: { name: "SomaFM Covers", url: "https://ice1.somafm.com/covers-128-mp3", genre: "Covers", country: "USA", language: "English" },
+    1600: { name: "SomaFM Cliq Hop", url: "https://ice1.somafm.com/cliqhop-128-mp3", genre: "Hip Hop", country: "USA", language: "English" }
   };
 
   // Find the nearest station for a given frequency
@@ -61,10 +63,15 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
 
   // Handle station change and audio playback
   useEffect(() => {
+    console.log('📻 Frequency changed to:', currentFrequency);
     const station = findNearestStation(currentFrequency);
+    console.log('🎯 Nearest station found:', station?.name);
+
     if (station && (!currentStation || station.name !== currentStation.name)) {
+      console.log('🔄 Switching from', currentStation?.name, 'to', station.name);
       setCurrentStation(station);
       if (isPlaying) {
+        console.log('🎵 Auto-playing new station since radio is currently playing');
         playStation(station);
       }
     }
@@ -72,41 +79,118 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
 
   // Initialize station on component mount
   useEffect(() => {
+    console.log('🚀 RadioTuner component mounted. Initial frequency:', currentFrequency);
     const station = findNearestStation(currentFrequency);
     if (station && !currentStation) {
+      console.log('🎯 Setting initial station:', station.name);
       setCurrentStation(station);
     }
   }, []);
 
   const playStation = async (station: RadioStation) => {
-    if (!audioRef.current) return;
+    console.log('🎵 Attempting to play station:', station);
+
+    if (!audioRef.current) {
+      console.error('❌ Audio ref is null');
+      return;
+    }
 
     setIsLoading(true);
+    console.log('⏳ Setting loading state to true');
 
     try {
-      // Stop current playback
-      audioRef.current.pause();
-      audioRef.current.src = station.url;
+      const audio = audioRef.current;
 
-      // Load and play new stream
-      await audioRef.current.load();
-      await audioRef.current.play();
+      // Stop current playback
+      console.log('⏹️ Pausing current audio');
+      audio.pause();
+      audio.currentTime = 0;
+
+      console.log('🔗 Setting audio source to:', station.url);
+      audio.src = station.url;
+
+      console.log('🔄 Loading audio...');
+      audio.load();
+
+      // Wait for the audio to be ready to play
+      console.log('⏳ Waiting for audio to be ready...');
+
+      const playPromise = new Promise((resolve, reject) => {
+        const timeout = setTimeout(() => {
+          reject(new Error('Audio load timeout'));
+        }, 10000); // 10 second timeout
+
+        const onCanPlay = () => {
+          console.log('✅ Audio can play');
+          clearTimeout(timeout);
+          audio.removeEventListener('canplay', onCanPlay);
+          audio.removeEventListener('error', onError);
+          resolve(true);
+        };
+
+        const onError = (e: any) => {
+          console.error('❌ Audio error during load:', e);
+          clearTimeout(timeout);
+          audio.removeEventListener('canplay', onCanPlay);
+          audio.removeEventListener('error', onError);
+          reject(e);
+        };
+
+        audio.addEventListener('canplay', onCanPlay);
+        audio.addEventListener('error', onError);
+      });
+
+      await playPromise;
+
+      console.log('▶️ Attempting to play audio...');
+      await audio.play();
+
+      console.log('🎉 Audio playing successfully!');
       setIsPlaying(true);
+
     } catch (error) {
-      console.error('Error playing radio stream:', error);
+      console.error('❌ Error playing radio stream:', error);
+      console.error('Error details:', {
+        name: error?.name,
+        message: error?.message,
+        code: error?.code
+      });
+
+      // Try to provide user feedback
+      if (error?.message?.includes('CORS')) {
+        console.error('🚫 CORS error - stream blocked by browser security');
+      } else if (error?.message?.includes('timeout')) {
+        console.error('⏰ Stream took too long to load');
+      } else if (error?.name === 'NotAllowedError') {
+        console.error('🔒 Autoplay blocked by browser - user interaction required');
+      }
+
       setIsPlaying(false);
     } finally {
+      console.log('🏁 Setting loading state to false');
       setIsLoading(false);
     }
   };
 
   const togglePlayback = () => {
-    if (!audioRef.current || !currentStation) return;
+    console.log('🎛️ Toggle playback clicked. Current state:', { isPlaying, currentStation: currentStation?.name });
+
+    if (!audioRef.current) {
+      console.error('❌ Audio ref is null in togglePlayback');
+      return;
+    }
+
+    if (!currentStation) {
+      console.error('❌ No current station selected');
+      return;
+    }
 
     if (isPlaying) {
+      console.log('⏸️ Pausing playback');
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
+      console.log('▶️ Starting playback for:', currentStation.name);
       playStation(currentStation);
     }
   };
@@ -605,11 +689,49 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
       <audio
         ref={audioRef}
         preload="none"
-        onLoadStart={() => setIsLoading(true)}
-        onCanPlayThrough={() => setIsLoading(false)}
-        onError={() => {
+        onLoadStart={() => {
+          console.log('📥 Audio element: Load started');
+          setIsLoading(true);
+        }}
+        onCanPlayThrough={() => {
+          console.log('✅ Audio element: Can play through');
+          setIsLoading(false);
+        }}
+        onError={(e) => {
+          const error = e.currentTarget.error;
+          console.error('❌ Audio element error:', {
+            code: error?.code,
+            message: error?.message,
+            MEDIA_ERR_ABORTED: error?.code === 1,
+            MEDIA_ERR_NETWORK: error?.code === 2,
+            MEDIA_ERR_DECODE: error?.code === 3,
+            MEDIA_ERR_SRC_NOT_SUPPORTED: error?.code === 4
+          });
           setIsLoading(false);
           setIsPlaying(false);
+        }}
+        onPlay={() => {
+          console.log('▶️ Audio element: Started playing');
+          setIsPlaying(true);
+          setIsLoading(false);
+        }}
+        onPause={() => {
+          console.log('⏸️ Audio element: Paused');
+          setIsPlaying(false);
+        }}
+        onStalled={() => {
+          console.warn('⚠️ Audio element: Stalled');
+        }}
+        onSuspend={() => {
+          console.log('⏸️ Audio element: Suspended');
+        }}
+        onWaiting={() => {
+          console.log('⏳ Audio element: Waiting for data');
+          setIsLoading(true);
+        }}
+        onCanPlay={() => {
+          console.log('✅ Audio element: Can play');
+          setIsLoading(false);
         }}
       />
     </div>
