@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './RadioTuner.css';
 
 interface RadioTunerProps {
@@ -6,11 +6,110 @@ interface RadioTunerProps {
   onFrequencyChange?: (frequency: number) => void;
 }
 
+interface RadioStation {
+  name: string;
+  url: string;
+  genre: string;
+  country: string;
+  language: string;
+}
+
 export const RadioTuner: React.FC<RadioTunerProps> = ({
   frequency = 800,
   onFrequencyChange
 }) => {
   const [currentFrequency, setCurrentFrequency] = useState(frequency);
+  const [currentStation, setCurrentStation] = useState<RadioStation | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  // Predefined stations mapped to frequency ranges
+  const stationMap = {
+    550: { name: "BBC Radio 1", url: "http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one", genre: "Pop", country: "UK", language: "English" },
+    600: { name: "NPR News", url: "https://npr-ice.streamguys1.com/live.mp3", genre: "News", country: "USA", language: "English" },
+    650: { name: "Jazz FM", url: "https://jazz-ard.ice.infomaniak.ch/jazz-ard-high.mp3", genre: "Jazz", country: "France", language: "French" },
+    700: { name: "Classical WQXR", url: "https://stream.wqxr.org/wqxr", genre: "Classical", country: "USA", language: "English" },
+    750: { name: "Radio France", url: "https://direct.franceinter.fr/live/franceinter-midfi.mp3", genre: "Talk", country: "France", language: "French" },
+    800: { name: "Smooth Jazz", url: "https://ice5.somafm.com/groovesalad-128-mp3", genre: "Jazz", country: "USA", language: "English" },
+    850: { name: "Chill Radio", url: "https://ice2.somafm.com/beatblender-128-mp3", genre: "Ambient", country: "USA", language: "English" },
+    900: { name: "Rock Classic", url: "https://ice6.somafm.com/lush-128-mp3", genre: "Rock", country: "USA", language: "English" },
+    950: { name: "Electronic Beats", url: "https://ice4.somafm.com/spacestation-128-mp3", genre: "Electronic", country: "USA", language: "English" },
+    1000: { name: "Folk Music", url: "https://ice5.somafm.com/folkfwd-128-mp3", genre: "Folk", country: "USA", language: "English" },
+    1050: { name: "Indie Radio", url: "https://ice6.somafm.com/indiepop-128-mp3", genre: "Indie", country: "USA", language: "English" },
+    1100: { name: "Deep House", url: "https://ice4.somafm.com/deepspaceone-128-mp3", genre: "House", country: "USA", language: "English" },
+    1150: { name: "Ambient Drone", url: "https://ice2.somafm.com/dronezone-128-mp3", genre: "Ambient", country: "USA", language: "English" },
+    1200: { name: "Metal Radio", url: "https://ice6.somafm.com/metal-128-mp3", genre: "Metal", country: "USA", language: "English" },
+    1250: { name: "Hip Hop", url: "https://ice4.somafm.com/hiphop-128-mp3", genre: "Hip Hop", country: "USA", language: "English" },
+    1300: { name: "Country Music", url: "https://ice5.somafm.com/bagel-128-mp3", genre: "Country", country: "USA", language: "English" },
+    1350: { name: "World Music", url: "https://ice2.somafm.com/secretagent-128-mp3", genre: "World", country: "Various", language: "Various" },
+    1400: { name: "Reggae Vibes", url: "https://ice6.somafm.com/reggae-128-mp3", genre: "Reggae", country: "Jamaica", language: "English" },
+    1450: { name: "Blues Station", url: "https://ice4.somafm.com/bootliquor-128-mp3", genre: "Blues", country: "USA", language: "English" },
+    1500: { name: "Christmas FM", url: "https://ice5.somafm.com/christmas-128-mp3", genre: "Holiday", country: "USA", language: "English" },
+    1550: { name: "Punk Rock", url: "https://ice2.somafm.com/suburbsofgoa-128-mp3", genre: "Punk", country: "USA", language: "English" },
+    1600: { name: "Celtic Music", url: "https://ice6.somafm.com/thistle-128-mp3", genre: "Celtic", country: "Ireland", language: "English" }
+  };
+
+  // Find the nearest station for a given frequency
+  const findNearestStation = (freq: number): RadioStation | null => {
+    const frequencies = Object.keys(stationMap).map(Number).sort((a, b) => a - b);
+    const closest = frequencies.reduce((prev, curr) =>
+      Math.abs(curr - freq) < Math.abs(prev - freq) ? curr : prev
+    );
+    return stationMap[closest as keyof typeof stationMap] || null;
+  };
+
+  // Handle station change and audio playback
+  useEffect(() => {
+    const station = findNearestStation(currentFrequency);
+    if (station && (!currentStation || station.name !== currentStation.name)) {
+      setCurrentStation(station);
+      if (isPlaying) {
+        playStation(station);
+      }
+    }
+  }, [currentFrequency, currentStation, isPlaying]);
+
+  // Initialize station on component mount
+  useEffect(() => {
+    const station = findNearestStation(currentFrequency);
+    if (station && !currentStation) {
+      setCurrentStation(station);
+    }
+  }, []);
+
+  const playStation = async (station: RadioStation) => {
+    if (!audioRef.current) return;
+
+    setIsLoading(true);
+
+    try {
+      // Stop current playback
+      audioRef.current.pause();
+      audioRef.current.src = station.url;
+
+      // Load and play new stream
+      await audioRef.current.load();
+      await audioRef.current.play();
+      setIsPlaying(true);
+    } catch (error) {
+      console.error('Error playing radio stream:', error);
+      setIsPlaying(false);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const togglePlayback = () => {
+    if (!audioRef.current || !currentStation) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      playStation(currentStation);
+    }
+  };
 
   // Convert frequency to angle (550-1600 range mapped to ~270 degrees)
   const frequencyToAngle = (freq: number) => {
@@ -88,6 +187,7 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
             textAnchor="middle"
             dominantBaseline="central"
             opacity="0.95"
+            filter="url(#textGlow)"
           >
             {freq}
           </text>
@@ -254,6 +354,7 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
           textAnchor="middle"
           fontWeight="bold"
           opacity="0.9"
+          filter="url(#textGlow)"
         >
           Silvertone
         </text>
@@ -289,6 +390,7 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
           fontWeight="bold"
           letterSpacing="2px"
           opacity="0.9"
+          filter="url(#strongGlow)"
         >
           BROADCAST
         </text>
@@ -303,6 +405,7 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
           fontWeight="bold"
           letterSpacing="2px"
           opacity="0.9"
+          filter="url(#strongGlow)"
         >
           FOREIGN
         </text>
@@ -450,12 +553,65 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
             <feTurbulence baseFrequency="0.04" numOctaves="5" result="noise" seed="1" />
             <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.5" />
           </filter>
+
+          {/* Glow effects for text and elements */}
+          <filter id="textGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+
+          <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
         </defs>
       </svg>
 
       <div className="frequency-display">
         {Math.round(currentFrequency)} AM
       </div>
+
+      {/* Station Information */}
+      {currentStation && (
+        <div className="station-info">
+          <div className="station-name">{currentStation.name}</div>
+          <div className="station-details">
+            {currentStation.genre} • {currentStation.country}
+          </div>
+        </div>
+      )}
+
+      {/* Audio Controls */}
+      <div className="audio-controls">
+        <button
+          className={`play-button ${isPlaying ? 'playing' : ''} ${isLoading ? 'loading' : ''}`}
+          onClick={togglePlayback}
+          disabled={!currentStation || isLoading}
+        >
+          {isLoading ? '○' : isPlaying ? '⏸' : '▶'}
+        </button>
+        <span className="volume-indicator">
+          {isPlaying ? '♪♫♪' : isLoading ? '...' : '♪'}
+        </span>
+      </div>
+
+      {/* Hidden Audio Element */}
+      <audio
+        ref={audioRef}
+        preload="none"
+        onLoadStart={() => setIsLoading(true)}
+        onCanPlayThrough={() => setIsLoading(false)}
+        onError={() => {
+          setIsLoading(false);
+          setIsPlaying(false);
+        }}
+      />
     </div>
   );
 };

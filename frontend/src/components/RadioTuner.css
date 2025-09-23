@@ -9,14 +9,16 @@
     url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="30" r="1" fill="%23000" opacity="0.05"/><circle cx="80" cy="20" r="0.5" fill="%23000" opacity="0.08"/><circle cx="50" cy="70" r="1.5" fill="%23000" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
   border-radius: 50%;
   box-shadow:
-    /* Outer shadow for depth */
+    /* Enhanced outer glow */
+    0 0 60px rgba(212, 175, 55, 0.15),
+    0 0 120px rgba(212, 175, 55, 0.08),
     0 0 40px rgba(0, 0, 0, 0.9),
     0 0 80px rgba(0, 0, 0, 0.7),
     /* Inner highlights for metallic effect */
-    inset 0 0 30px rgba(212, 175, 55, 0.08),
+    inset 0 0 30px rgba(212, 175, 55, 0.12),
     inset 0 0 60px rgba(0, 0, 0, 0.8),
-    /* Subtle rim lighting */
-    inset 0 0 2px rgba(212, 175, 55, 0.3);
+    /* Enhanced rim lighting */
+    inset 0 0 3px rgba(212, 175, 55, 0.4);
   border: 2px solid #8b6914;
   position: relative;
   /* Add subtle texture */
@@ -26,7 +28,8 @@
 .tuner-dial {
   cursor: pointer;
   filter:
-    drop-shadow(0 0 8px rgba(139, 105, 20, 0.4))
+    drop-shadow(0 0 15px rgba(212, 175, 55, 0.3))
+    drop-shadow(0 0 30px rgba(212, 175, 55, 0.1))
     drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
   transition: all 0.3s ease;
   /* Subtle vintage wear effect */
@@ -35,7 +38,8 @@
 
 .tuner-dial:hover {
   filter:
-    drop-shadow(0 0 12px rgba(139, 105, 20, 0.6))
+    drop-shadow(0 0 20px rgba(212, 175, 55, 0.4))
+    drop-shadow(0 0 40px rgba(212, 175, 55, 0.15))
     drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
   transform: scale(1.01);
   opacity: 1;
@@ -57,8 +61,9 @@
     /* Inset shadow for depth */
     inset 0 2px 6px rgba(0, 0, 0, 0.7),
     inset 0 -1px 1px rgba(139, 105, 20, 0.2),
-    /* Outer glow */
-    0 0 8px rgba(139, 105, 20, 0.15),
+    /* Enhanced outer glow */
+    0 0 15px rgba(212, 175, 55, 0.2),
+    0 0 30px rgba(212, 175, 55, 0.1),
     0 1px 2px rgba(0, 0, 0, 0.5);
   text-shadow:
     0 0 3px rgba(196, 152, 31, 0.6),
@@ -169,6 +174,142 @@
   filter: sepia(0.1) contrast(0.95) brightness(0.98);
 }
 
+/* Station Information Display */
+.station-info {
+  text-align: center;
+  color: #c4981f;
+  margin-top: 0.5rem;
+  background:
+    linear-gradient(135deg, #3a2817 0%, #2a1810 50%, #1a0f08 100%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="3" cy="7" r="0.3" fill="%23000" opacity="0.1"/><circle cx="15" cy="12" r="0.2" fill="%23000" opacity="0.15"/></svg>');
+  padding: 0.6rem 1rem;
+  border-radius: 0.4rem;
+  border: 1px solid #8b6914;
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.7),
+    inset 0 -1px 1px rgba(139, 105, 20, 0.2),
+    0 0 15px rgba(212, 175, 55, 0.15),
+    0 0 30px rgba(212, 175, 55, 0.08);
+  min-width: 200px;
+  max-width: 280px;
+}
+
+.station-name {
+  font-family: 'Times New Roman', serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+  text-shadow:
+    0 0 3px rgba(196, 152, 31, 0.6),
+    0 1px 1px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.5px;
+}
+
+.station-details {
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #a8841a;
+}
+
+/* Audio Controls */
+.audio-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.8rem;
+  padding: 0.5rem;
+}
+
+.play-button {
+  background:
+    radial-gradient(circle at 30% 30%, #4a3d23 0%, #3a2418 50%, #2a1810 100%);
+  border: 2px solid #8b6914;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: #d4af37;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 0 15px rgba(212, 175, 55, 0.2),
+    0 0 30px rgba(212, 175, 55, 0.1),
+    inset 0 2px 4px rgba(0, 0, 0, 0.6),
+    inset 0 -1px 2px rgba(139, 105, 20, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.play-button:hover:not(:disabled) {
+  background:
+    radial-gradient(circle at 30% 30%, #5a4d33 0%, #4a3428 50%, #3a2820 100%);
+  box-shadow:
+    0 0 20px rgba(212, 175, 55, 0.3),
+    0 0 40px rgba(212, 175, 55, 0.15),
+    inset 0 2px 4px rgba(0, 0, 0, 0.6),
+    inset 0 -1px 2px rgba(139, 105, 20, 0.4);
+  transform: scale(1.05);
+}
+
+.play-button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.play-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.play-button.playing {
+  color: #ff6b35;
+  animation: playing-glow 2s ease-in-out infinite alternate;
+}
+
+.play-button.loading {
+  color: #c4981f;
+  animation: loading-spin 1s linear infinite;
+}
+
+@keyframes playing-glow {
+  from {
+    box-shadow:
+      0 0 15px rgba(255, 107, 53, 0.3),
+      0 0 30px rgba(255, 107, 53, 0.1),
+      inset 0 2px 4px rgba(0, 0, 0, 0.6),
+      inset 0 -1px 2px rgba(139, 105, 20, 0.3);
+  }
+  to {
+    box-shadow:
+      0 0 20px rgba(255, 107, 53, 0.4),
+      0 0 40px rgba(255, 107, 53, 0.15),
+      inset 0 2px 4px rgba(0, 0, 0, 0.6),
+      inset 0 -1px 2px rgba(139, 105, 20, 0.3);
+  }
+}
+
+@keyframes loading-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.volume-indicator {
+  font-family: monospace;
+  color: #8b6914;
+  font-size: 0.8rem;
+  animation: volume-pulse 1.5s ease-in-out infinite;
+  text-shadow: 0 0 2px rgba(139, 105, 20, 0.5);
+}
+
+@keyframes volume-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
 /* Make the component responsive */
 @media (max-width: 768px) {
   .radio-tuner {
@@ -181,6 +322,25 @@
   }
 
   .frequency-display {
+    font-size: 1rem;
+  }
+
+  .station-info {
+    padding: 0.5rem 0.8rem;
+    min-width: 180px;
+  }
+
+  .station-name {
+    font-size: 0.8rem;
+  }
+
+  .station-details {
+    font-size: 0.6rem;
+  }
+
+  .play-button {
+    width: 40px;
+    height: 40px;
     font-size: 1rem;
   }
 }
