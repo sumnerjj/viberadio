@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import './RadioTuner.css';
+import staticSoundFile from '../assets/audio/static.mp3';
 
 interface RadioTunerProps {
   frequency?: number;
@@ -26,6 +27,7 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [isDragging, setIsDragging] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const staticAudioRef = useRef<HTMLAudioElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const isDraggingRef = useRef(false);
   const dragStartAngleRef = useRef(0);
@@ -1026,6 +1028,23 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
     }
   }, []);
 
+  // Static sound control functions
+  const playStaticSound = () => {
+    if (staticAudioRef.current) {
+      staticAudioRef.current.currentTime = 0;
+      staticAudioRef.current.loop = true;
+      staticAudioRef.current.volume = 0.3; // Adjust volume as needed
+      staticAudioRef.current.play().catch(console.error);
+    }
+  };
+
+  const stopStaticSound = () => {
+    if (staticAudioRef.current) {
+      staticAudioRef.current.pause();
+      staticAudioRef.current.currentTime = 0;
+    }
+  };
+
   const playStation = async (station: RadioStation, useFallback = false) => {
     const urlToTry = useFallback && station.fallbackUrl ? station.fallbackUrl : station.url;
     console.log(`🎵 Attempting to play station: ${station.name}`, useFallback ? '(using fallback URL)' : '');
@@ -1039,6 +1058,9 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
     setIsLoading(true);
     setErrorMessage('');
     console.log('⏳ Setting loading state to true');
+
+    // Play static sound during loading
+    playStaticSound();
 
     try {
       const audio = audioRef.current;
@@ -1787,10 +1809,12 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
         onLoadStart={() => {
           console.log('📥 Audio element: Load started');
           setIsLoading(true);
+          playStaticSound();
         }}
         onCanPlayThrough={() => {
           console.log('✅ Audio element: Can play through');
           setIsLoading(false);
+          stopStaticSound();
         }}
         onError={(e) => {
           const error = e.currentTarget.error;
@@ -1804,11 +1828,13 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
           });
           setIsLoading(false);
           setIsPlaying(false);
+          stopStaticSound();
         }}
         onPlay={() => {
           console.log('▶️ Audio element: Started playing');
           setIsPlaying(true);
           setIsLoading(false);
+          stopStaticSound();
         }}
         onPause={() => {
           console.log('⏸️ Audio element: Paused');
@@ -1823,11 +1849,21 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
         onWaiting={() => {
           console.log('⏳ Audio element: Waiting for data');
           setIsLoading(true);
+          playStaticSound();
         }}
         onCanPlay={() => {
           console.log('✅ Audio element: Can play');
           setIsLoading(false);
+          stopStaticSound();
         }}
+      />
+
+      {/* Hidden Static Audio Element */}
+      <audio
+        ref={staticAudioRef}
+        preload="auto"
+        loop
+        src={staticSoundFile}
       />
     </div>
   );
