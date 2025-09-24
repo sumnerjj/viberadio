@@ -999,6 +999,9 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
 
       if (station && (!currentStation || station.name !== currentStation.name)) {
         console.log('🔄 Switching from', currentStation?.name, 'to', station.name);
+
+        // Clear any previous error message when switching stations
+        setErrorMessage('');
         setCurrentStation(station);
 
         // Auto-play if radio is currently playing (including during dragging)
@@ -1144,6 +1147,8 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
       setIsPlaying(false);
     } else {
       console.log('▶️ Starting playback for:', currentStation.name);
+      // Clear any previous error when user attempts to play
+      setErrorMessage('');
       playStation(currentStation);
     }
   };
