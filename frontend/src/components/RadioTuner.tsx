@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import './RadioTuner.css';
 
 interface RadioTunerProps {
@@ -24,7 +24,12 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string>('');
+  const [isDragging, setIsDragging] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
+  const isDraggingRef = useRef(false);
+  const dragStartAngleRef = useRef(0);
+  const dragStartFrequencyRef = useRef(0);
 
   // Predefined stations mapped to frequency ranges
   // Using VERIFIED WORKING streams from comprehensive testing (141 confirmed working stations from 208 tested)
@@ -985,21 +990,27 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
     return stationMap[closest as keyof typeof stationMap] || null;
   };
 
-  // Handle station change and audio playback
+  // Handle station change and audio playback with debouncing for smooth dragging
   useEffect(() => {
-    console.log('📻 Frequency changed to:', currentFrequency);
-    const station = findNearestStation(currentFrequency);
-    console.log('🎯 Nearest station found:', station?.name);
+    const debounceTimer = setTimeout(() => {
+      console.log('📻 Frequency changed to:', currentFrequency);
+      const station = findNearestStation(currentFrequency);
+      console.log('🎯 Nearest station found:', station?.name);
 
-    if (station && (!currentStation || station.name !== currentStation.name)) {
-      console.log('🔄 Switching from', currentStation?.name, 'to', station.name);
-      setCurrentStation(station);
-      if (isPlaying) {
-        console.log('🎵 Auto-playing new station since radio is currently playing');
-        playStation(station);
+      if (station && (!currentStation || station.name !== currentStation.name)) {
+        console.log('🔄 Switching from', currentStation?.name, 'to', station.name);
+        setCurrentStation(station);
+
+        // Auto-play if radio is currently playing (including during dragging)
+        if (isPlaying) {
+          console.log('🎵 Auto-playing new station since radio is currently playing');
+          playStation(station);
+        }
       }
-    }
-  }, [currentFrequency, currentStation, isPlaying]);
+    }, isDragging ? 50 : 300); // Shorter debounce while dragging for responsiveness
+
+    return () => clearTimeout(debounceTimer);
+  }, [currentFrequency, currentStation, isPlaying, isDragging]);
 
   // Initialize station on component mount
   useEffect(() => {
@@ -1137,10 +1148,10 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
     }
   };
 
-  // Convert frequency to angle (550-1600 range mapped to ~270 degrees)
+  // Convert frequency to angle (530-1700 range mapped to ~270 degrees) - Updated for full spectrum
   const frequencyToAngle = (freq: number) => {
-    const minFreq = 550;
-    const maxFreq = 1600;
+    const minFreq = 530;
+    const maxFreq = 1700;
     const startAngle = -135; // Start at 225 degrees (bottom left)
     const endAngle = 135;    // End at 135 degrees (bottom right)
     const range = maxFreq - minFreq;
@@ -1148,40 +1159,100 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
     return startAngle + ((freq - minFreq) / range) * angleRange;
   };
 
-  const handleDialClick = (event: React.MouseEvent<SVGElement>) => {
-    const svg = event.currentTarget;
-    const rect = svg.getBoundingClientRect();
+  // Convert angle to frequency
+  const angleToFrequency = (angle: number) => {
+    const minFreq = 530;
+    const maxFreq = 1700;
+    const startAngle = -135;
+    const endAngle = 135;
+    const angleRange = endAngle - startAngle;
+    const normalizedAngle = angle - startAngle;
+    return minFreq + (normalizedAngle / angleRange) * (maxFreq - minFreq);
+  };
+
+  // Get mouse angle relative to center of SVG
+  const getMouseAngle = (event: MouseEvent | React.MouseEvent) => {
+    if (!svgRef.current) return 0;
+    const rect = svgRef.current.getBoundingClientRect();
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
     const x = event.clientX - rect.left - centerX;
     const y = event.clientY - rect.top - centerY;
-
     let angle = Math.atan2(y, x) * (180 / Math.PI);
 
-    // Normalize angle to match our frequency range
+    // Normalize angle to our range
     if (angle < -135) angle += 360;
     if (angle > 135 && angle < 225) {
       angle = angle < 180 ? 135 : -135;
     }
 
-    // Convert angle back to frequency
-    const minFreq = 550;
-    const maxFreq = 1600;
-    const startAngle = -135;
-    const endAngle = 135;
-    const angleRange = endAngle - startAngle;
-    const normalizedAngle = angle - startAngle;
-    const newFreq = minFreq + (normalizedAngle / angleRange) * (maxFreq - minFreq);
-
-    const clampedFreq = Math.max(minFreq, Math.min(maxFreq, newFreq));
-    setCurrentFrequency(clampedFreq);
-    onFrequencyChange?.(clampedFreq);
+    return angle;
   };
 
-  // Generate frequency markings
+  // Handle mouse/touch start for dragging
+  const handleDragStart = (event: React.MouseEvent<SVGElement>) => {
+    event.preventDefault();
+    isDraggingRef.current = true;
+    setIsDragging(true);
+    const angle = getMouseAngle(event);
+    dragStartAngleRef.current = angle;
+    dragStartFrequencyRef.current = currentFrequency;
+
+    // Add global mouse event listeners
+    document.addEventListener('mousemove', handleDragMove);
+    document.addEventListener('mouseup', handleDragEnd);
+  };
+
+  // Handle drag movement - defined with useCallback to maintain stable reference
+  const handleDragMove = useCallback((event: MouseEvent) => {
+    if (!isDraggingRef.current) return;
+
+    const currentAngle = getMouseAngle(event);
+    const angleDiff = currentAngle - dragStartAngleRef.current;
+
+    // Convert angle difference to frequency difference
+    const freqDiff = (angleDiff / 270) * (1700 - 530); // 270 degrees covers full range
+    let newFreq = dragStartFrequencyRef.current + freqDiff;
+
+    // Clamp to valid frequency range
+    newFreq = Math.max(530, Math.min(1700, newFreq));
+
+    setCurrentFrequency(Math.round(newFreq));
+    onFrequencyChange?.(Math.round(newFreq));
+  }, [onFrequencyChange]);
+
+  // Handle drag end - defined with useCallback to maintain stable reference
+  const handleDragEnd = useCallback(() => {
+    isDraggingRef.current = false;
+    setIsDragging(false);
+    document.removeEventListener('mousemove', handleDragMove);
+    document.removeEventListener('mouseup', handleDragEnd);
+  }, [handleDragMove]);
+
+  // Click to tune (for non-drag interactions)
+  const handleDialClick = (event: React.MouseEvent<SVGElement>) => {
+    if (isDragging) return; // Prevent click during drag
+
+    const angle = getMouseAngle(event);
+    const newFreq = angleToFrequency(angle);
+    const clampedFreq = Math.max(530, Math.min(1700, newFreq));
+
+    setCurrentFrequency(Math.round(clampedFreq));
+    onFrequencyChange?.(Math.round(clampedFreq));
+  };
+
+  // Cleanup event listeners on unmount
+  useEffect(() => {
+    return () => {
+      document.removeEventListener('mousemove', handleDragMove);
+      document.removeEventListener('mouseup', handleDragEnd);
+    };
+  }, []);
+
+  // Generate frequency markings - Updated for full spectrum
   const generateFrequencyMarks = () => {
     const marks = [];
-    const frequencies = [550, 600, 650, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600];
+    const frequencies = [530, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700];
 
     for (const freq of frequencies) {
       const angle = frequencyToAngle(freq);
@@ -1223,11 +1294,12 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
     return marks;
   };
 
-  // Generate minor ticks
+  // Generate minor ticks - Updated for full spectrum
   const generateMinorTicks = () => {
     const ticks = [];
-    for (let freq = 550; freq <= 1600; freq += 10) {
-      if (freq % 50 !== 0) { // Skip major frequency marks
+    const majorFrequencies = [530, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700];
+    for (let freq = 530; freq <= 1700; freq += 10) {
+      if (!majorFrequencies.includes(freq)) { // Skip major frequency marks
         const angle = frequencyToAngle(freq);
         const radian = (angle * Math.PI) / 180;
         const x1 = 150 + Math.cos(radian) * 130;
@@ -1252,19 +1324,57 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
     return ticks;
   };
 
+  // Calculate tuner needle position
   const tunerAngle = frequencyToAngle(currentFrequency);
   const tunerRadian = (tunerAngle * Math.PI) / 180;
   const tunerX = 150 + Math.cos(tunerRadian) * 80;
   const tunerY = 150 + Math.sin(tunerRadian) * 80;
 
+  // Check if near a station frequency (within 5 kHz)
+  const nearStation = currentStation && Math.abs(currentFrequency - Object.keys(stationMap).map(Number).find(freq => stationMap[freq as keyof typeof stationMap]?.name === currentStation.name) || 0) < 5;
+
+  // Generate station markers on dial
+  const generateStationMarkers = () => {
+    const markers = [];
+    const availableFreqs = Object.keys(stationMap).map(Number);
+
+    availableFreqs.forEach(freq => {
+      const angle = frequencyToAngle(freq);
+      const radian = (angle * Math.PI) / 180;
+      const markerX = 150 + Math.cos(radian) * 115;
+      const markerY = 150 + Math.sin(radian) * 115;
+
+      const isActive = currentStation && stationMap[freq as keyof typeof stationMap]?.name === currentStation.name;
+
+      markers.push(
+        <circle
+          key={`marker-${freq}`}
+          cx={markerX}
+          cy={markerY}
+          r={isActive ? "3" : "1.5"}
+          fill={isActive ? "url(#activeStationGlow)" : "#d4af37"}
+          opacity={isActive ? "1" : "0.6"}
+          stroke={isActive ? "#fff" : "none"}
+          strokeWidth={isActive ? "0.5" : "0"}
+          filter={isActive ? "url(#stationGlow)" : "none"}
+        />
+      );
+    });
+
+    return markers;
+  };
+
   return (
     <div className="radio-tuner">
       <svg
+        ref={svgRef}
         width="300"
         height="300"
         viewBox="0 0 300 300"
         onClick={handleDialClick}
+        onMouseDown={handleDragStart}
         className="tuner-dial"
+        style={{ cursor: isDragging ? 'grabbing' : 'grab', userSelect: 'none' }}
       >
         {/* Outer bezel with wear */}
         <circle
@@ -1342,6 +1452,9 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
 
         {/* Major frequency markings */}
         {generateFrequencyMarks()}
+
+        {/* Station markers */}
+        {generateStationMarkers()}
 
         {/* Center logo area with vintage depth */}
         <circle
@@ -1463,15 +1576,28 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
           AVIATION
         </text>
 
-        {/* Tuning indicator */}
+        {/* Tuning indicator - Enhanced with visual feedback */}
         <line
           x1="150"
           y1="150"
           x2={tunerX}
           y2={tunerY}
-          stroke="#ff6b35"
-          strokeWidth="2"
+          stroke={nearStation ? "url(#activeStationGlow)" : "#ff6b35"}
+          strokeWidth={nearStation ? "3" : "2"}
           strokeLinecap="round"
+          filter={nearStation ? "url(#stationGlow)" : "none"}
+          opacity={isDragging ? "0.9" : "1"}
+        />
+
+        {/* Tuning indicator tip */}
+        <circle
+          cx={tunerX}
+          cy={tunerY}
+          r={nearStation ? "4" : "2.5"}
+          fill={nearStation ? "url(#activeStationGlow)" : "#ff6b35"}
+          stroke={nearStation ? "#fff" : "none"}
+          strokeWidth={nearStation ? "1" : "0"}
+          filter={nearStation ? "url(#stationGlow)" : "none"}
         />
 
         {/* Center dot */}
@@ -1530,6 +1656,22 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
           <linearGradient id="centerRim" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#b8941f" />
             <stop offset="50%" stopColor="#8b6914" />
+
+          {/* Station marker gradients */}
+          <radialGradient id="activeStationGlow" cx="0.3" cy="0.3" r="0.7">
+            <stop offset="0%" stopColor="#ff6b35" />
+            <stop offset="50%" stopColor="#ff4500" />
+            <stop offset="100%" stopColor="#d4af37" />
+          </radialGradient>
+
+          {/* Enhanced glow filters */}
+          <filter id="stationGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
             <stop offset="100%" stopColor="#5a420a" />
           </linearGradient>
 
