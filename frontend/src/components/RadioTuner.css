@@ -25,23 +25,42 @@
   background-size: 50px 50px, cover;
 }
 
-.tuner-dial {
+.dial-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dial-image {
+  width: 300px;
+  height: 300px;
   cursor: pointer;
   filter:
     drop-shadow(0 0 15px rgba(212, 175, 55, 0.3))
     drop-shadow(0 0 30px rgba(212, 175, 55, 0.1))
     drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
   transition: all 0.3s ease;
-  /* Subtle vintage wear effect */
   opacity: 0.95;
 }
 
-.tuner-dial:hover {
+.tuner-overlay {
+  pointer-events: none;
+}
+
+.tuner-dial {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dial-image:hover {
   filter:
     drop-shadow(0 0 20px rgba(212, 175, 55, 0.4))
     drop-shadow(0 0 40px rgba(212, 175, 55, 0.15))
     drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
   transform: scale(1.01);
+  opacity: 1;
+}
+
+.tuner-dial:hover {
   opacity: 1;
 }
 
@@ -160,7 +179,7 @@
 }
 
 /* Interactive feel with vintage mechanical feedback */
-.tuner-dial:active {
+.dial-image:active {
   transform: scale(0.99);
   transition: transform 0.1s ease;
   filter:

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import './RadioTuner.css';
 import staticSoundFile from '../assets/audio/static.mp3';
+import dialImage from '../assets/dial.jpg';
 
 interface RadioTunerProps {
   frequency?: number;
@@ -1200,8 +1201,11 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
 
   // Get mouse angle relative to center of SVG
   const getMouseAngle = (event: MouseEvent | React.MouseEvent) => {
-    if (!svgRef.current) return 0;
-    const rect = svgRef.current.getBoundingClientRect();
+    // Use the dial container to get the correct bounding box
+    const dialContainer = document.querySelector('.dial-container') as HTMLElement;
+    if (!dialContainer) return 0;
+
+    const rect = dialContainer.getBoundingClientRect();
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
     const x = event.clientX - rect.left - centerX;
@@ -1218,7 +1222,7 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
   };
 
   // Handle mouse/touch start for dragging
-  const handleDragStart = (event: React.MouseEvent<SVGElement>) => {
+  const handleDragStart = (event: React.MouseEvent<HTMLImageElement>) => {
     event.preventDefault();
     isDraggingRef.current = true;
     setIsDragging(true);
@@ -1258,7 +1262,7 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
   }, [handleDragMove]);
 
   // Click to tune (for non-drag interactions)
-  const handleDialClick = (event: React.MouseEvent<SVGElement>) => {
+  const handleDialClick = (event: React.MouseEvent<HTMLImageElement>) => {
     if (isDragging) return; // Prevent click during drag
 
     const angle = getMouseAngle(event);
@@ -1277,80 +1281,9 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
     };
   }, []);
 
-  // Generate frequency markings - Updated for full spectrum
-  const generateFrequencyMarks = () => {
-    const marks = [];
-    const frequencies = [530, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700];
+  // Generate frequency markings - removed for image dial
 
-    for (const freq of frequencies) {
-      const angle = frequencyToAngle(freq);
-      const radian = (angle * Math.PI) / 180;
-      const x1 = 150 + Math.cos(radian) * 130;
-      const y1 = 150 + Math.sin(radian) * 130;
-      const x2 = 150 + Math.cos(radian) * 120;
-      const y2 = 150 + Math.sin(radian) * 120;
-      const textX = 150 + Math.cos(radian) * 110;
-      const textY = 150 + Math.sin(radian) * 110;
-
-      marks.push(
-        <g key={freq}>
-          <line
-            x1={x1}
-            y1={y1}
-            x2={x2}
-            y2={y2}
-            stroke="#d4af37"
-            strokeWidth="1"
-          />
-          <text
-            x={textX}
-            y={textY}
-            fill="url(#numberGradient)"
-            fontSize="8"
-            fontFamily="Times New Roman, serif"
-            fontWeight="bold"
-            textAnchor="middle"
-            dominantBaseline="central"
-            opacity="0.95"
-            filter="url(#textGlow)"
-          >
-            {freq}
-          </text>
-        </g>
-      );
-    }
-    return marks;
-  };
-
-  // Generate minor ticks - Updated for full spectrum
-  const generateMinorTicks = () => {
-    const ticks = [];
-    const majorFrequencies = [530, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700];
-    for (let freq = 530; freq <= 1700; freq += 10) {
-      if (!majorFrequencies.includes(freq)) { // Skip major frequency marks
-        const angle = frequencyToAngle(freq);
-        const radian = (angle * Math.PI) / 180;
-        const x1 = 150 + Math.cos(radian) * 130;
-        const y1 = 150 + Math.sin(radian) * 130;
-        const x2 = 150 + Math.cos(radian) * 125;
-        const y2 = 150 + Math.sin(radian) * 125;
-
-        ticks.push(
-          <line
-            key={freq}
-            x1={x1}
-            y1={y1}
-            x2={x2}
-            y2={y2}
-            stroke="#d4af37"
-            strokeWidth="0.5"
-            opacity="0.7"
-          />
-        );
-      }
-    }
-    return ticks;
-  };
+  // Generate minor ticks - removed for image dial
 
   // Calculate tuner needle position
   const tunerAngle = frequencyToAngle(currentFrequency);
@@ -1361,259 +1294,37 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
   // Check if near a station frequency (within 5 kHz)
   const nearStation = currentStation && Math.abs(currentFrequency - Object.keys(stationMap).map(Number).find(freq => stationMap[freq as keyof typeof stationMap]?.name === currentStation.name) || 0) < 5;
 
-  // Generate station markers on dial
-  const generateStationMarkers = () => {
-    const markers = [];
-    const availableFreqs = Object.keys(stationMap).map(Number);
-
-    availableFreqs.forEach(freq => {
-      const angle = frequencyToAngle(freq);
-      const radian = (angle * Math.PI) / 180;
-      const markerX = 150 + Math.cos(radian) * 115;
-      const markerY = 150 + Math.sin(radian) * 115;
-
-      const isActive = currentStation && stationMap[freq as keyof typeof stationMap]?.name === currentStation.name;
-
-      markers.push(
-        <circle
-          key={`marker-${freq}`}
-          cx={markerX}
-          cy={markerY}
-          r={isActive ? "3" : "1.5"}
-          fill={isActive ? "url(#activeStationGlow)" : "#d4af37"}
-          opacity={isActive ? "1" : "0.6"}
-          stroke={isActive ? "#fff" : "none"}
-          strokeWidth={isActive ? "0.5" : "0"}
-          filter={isActive ? "url(#stationGlow)" : "none"}
-        />
-      );
-    });
-
-    return markers;
-  };
+  // Generate station markers - removed for image dial
 
   return (
     <div className="radio-tuner">
-      <svg
-        ref={svgRef}
-        width="300"
-        height="300"
-        viewBox="0 0 300 300"
-        onClick={handleDialClick}
-        onMouseDown={handleDragStart}
-        className="tuner-dial"
-        style={{ cursor: isDragging ? 'grabbing' : 'grab', userSelect: 'none' }}
-      >
-        {/* Outer bezel with wear */}
-        <circle
-          cx="150"
-          cy="150"
-          r="145"
-          fill="url(#bezelGradient)"
-          stroke="url(#wornBrass)"
-          strokeWidth="3"
+      <div className="dial-container">
+        <img
+          src={dialImage}
+          alt="Radio Dial"
+          className="dial-image"
+          onClick={handleDialClick}
+          onMouseDown={handleDragStart}
+          style={{ cursor: isDragging ? 'grabbing' : 'grab', userSelect: 'none' }}
         />
-
-        {/* Background circle with patina */}
-        <circle
-          cx="150"
-          cy="150"
-          r="140"
-          fill="url(#dialGradient)"
-          stroke="url(#wornBrass)"
-          strokeWidth="1.5"
-        />
-
-        {/* Aged paper texture overlay */}
-        <circle
-          cx="150"
-          cy="150"
-          r="138"
-          fill="url(#paperTexture)"
-          opacity="0.3"
-        />
-
-        {/* Inner frequency band circle */}
-        <circle
-          cx="150"
-          cy="150"
-          r="120"
-          fill="none"
-          stroke="url(#fadedBrass)"
-          strokeWidth="0.8"
-          opacity="0.9"
-        />
-
-        {/* Outer decorative circle with wear */}
-        <circle
-          cx="150"
-          cy="150"
-          r="135"
-          fill="none"
-          stroke="url(#fadedBrass)"
-          strokeWidth="0.5"
-          opacity="0.7"
-        />
-
-        {/* Additional concentric rings for authenticity */}
-        <circle
-          cx="150"
-          cy="150"
-          r="125"
-          fill="none"
-          stroke="#8b6914"
-          strokeWidth="0.3"
-          opacity="0.4"
-        />
-        <circle
-          cx="150"
-          cy="150"
-          r="130"
-          fill="none"
-          stroke="#8b6914"
-          strokeWidth="0.3"
-          opacity="0.4"
-        />
-
-        {/* Minor ticks */}
-        {generateMinorTicks()}
-
-        {/* Major frequency markings */}
-        {generateFrequencyMarks()}
-
-        {/* Station markers */}
-        {generateStationMarkers()}
-
-        {/* Center logo area with vintage depth */}
-        <circle
-          cx="150"
-          cy="150"
-          r="52"
-          fill="url(#centerBezel)"
-          stroke="url(#centerRim)"
-          strokeWidth="1.5"
-        />
-        <circle
-          cx="150"
-          cy="150"
-          r="48"
-          fill="url(#centerGradient)"
-          stroke="url(#fadedBrass)"
-          strokeWidth="1"
-        />
-
-        {/* Worn center texture */}
-        <circle
-          cx="150"
-          cy="150"
-          r="46"
-          fill="url(#centerWear)"
-          opacity="0.4"
-        />
-
-        {/* Silvertone text with vintage styling */}
-        <text
-          x="150"
-          y="142"
-          fill="url(#logoGradient)"
-          fontSize="11"
-          fontFamily="Times New Roman, serif"
-          textAnchor="middle"
-          fontWeight="bold"
-          opacity="0.9"
-          filter="url(#textGlow)"
+        <svg
+          ref={svgRef}
+          width="300"
+          height="300"
+          viewBox="0 0 300 300"
+          className="tuner-overlay"
+          style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'none' }}
         >
-          Silvertone
-        </text>
 
-        {/* Small decorative line under text */}
-        <line
-          x1="135"
-          y1="148"
-          x2="165"
-          y2="148"
-          stroke="url(#fadedBrass)"
-          strokeWidth="0.5"
-          opacity="0.6"
-        />
-
-        {/* Vintage decorative stars with patina */}
-        <g fill="url(#starGradient)" opacity="0.7">
-          <polygon points="135,125 136.5,129 141,129 137.5,132 139,136 135,133.5 131,136 132.5,132 129,129 133.5,129" />
-          <polygon points="165,125 166.5,129 171,129 167.5,132 169,136 165,133.5 161,136 162.5,132 159,129 163.5,129" />
-          <polygon points="150,118 151.5,122 156,122 152.5,125 154,129 150,126.5 146,129 147.5,125 144,122 148.5,122" />
-          <polygon points="127,135 128.5,139 133,139 129.5,142 131,146 127,143.5 123,146 124.5,142 121,139 125.5,139" />
-          <polygon points="173,135 174.5,139 179,139 175.5,142 177,146 173,143.5 169,146 170.5,142 167,139 171.5,139" />
-        </g>
-
-        {/* Vintage band labels with enhanced styling */}
-        <text
-          x="150"
-          y="195"
-          fill="url(#bandLabelGradient)"
-          fontSize="8"
-          fontFamily="Arial, sans-serif"
-          textAnchor="middle"
-          fontWeight="bold"
-          letterSpacing="2px"
-          opacity="0.9"
-          filter="url(#strongGlow)"
-        >
-          BROADCAST
-        </text>
-
-        <text
-          x="150"
-          y="210"
-          fill="url(#bandLabelGradient)"
-          fontSize="7"
-          fontFamily="Arial, sans-serif"
-          textAnchor="middle"
-          fontWeight="bold"
-          letterSpacing="2px"
-          opacity="0.9"
-          filter="url(#strongGlow)"
-        >
-          FOREIGN
-        </text>
-
-        {/* Additional authentic radio markings */}
-        <text
-          x="90"
-          y="90"
-          fill="url(#fadedBrass)"
-          fontSize="5"
-          fontFamily="Arial, sans-serif"
-          textAnchor="middle"
-          opacity="0.6"
-          transform="rotate(-45 90 90)"
-        >
-          POLICE
-        </text>
-
-        <text
-          x="210"
-          y="210"
-          fill="url(#fadedBrass)"
-          fontSize="5"
-          fontFamily="Arial, sans-serif"
-          textAnchor="middle"
-          opacity="0.6"
-          transform="rotate(45 210 210)"
-        >
-          AVIATION
-        </text>
-
-        {/* Tuning indicator - Enhanced with visual feedback */}
+        {/* Tuning indicator needle */}
         <line
           x1="150"
           y1="150"
           x2={tunerX}
           y2={tunerY}
-          stroke={nearStation ? "url(#activeStationGlow)" : "#ff6b35"}
+          stroke={nearStation ? "#ff4500" : "#ff6b35"}
           strokeWidth={nearStation ? "3" : "2"}
           strokeLinecap="round"
-          filter={nearStation ? "url(#stationGlow)" : "none"}
           opacity={isDragging ? "0.9" : "1"}
         />
 
@@ -1622,18 +1333,17 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
           cx={tunerX}
           cy={tunerY}
           r={nearStation ? "4" : "2.5"}
-          fill={nearStation ? "url(#activeStationGlow)" : "#ff6b35"}
+          fill={nearStation ? "#ff4500" : "#ff6b35"}
           stroke={nearStation ? "#fff" : "none"}
           strokeWidth={nearStation ? "1" : "0"}
-          filter={nearStation ? "url(#stationGlow)" : "none"}
         />
 
-        {/* Center dot */}
+        {/* Center pivot dot */}
         <circle
           cx="150"
           cy="150"
           r="3"
-          fill="#d4af37"
+          fill="#333"
         />
 
         {/* Vintage gradients and textures */}
@@ -1767,7 +1477,8 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
             </feMerge>
           </filter>
         </defs>
-      </svg>
+        </svg>
+      </div>
 
       <div className="frequency-display">
         {Math.round(currentFrequency)} AM
