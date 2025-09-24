@@ -13,3 +13,16 @@ h1 {
 p {
   margin: 1rem 0;
 }
+
+.glow-title {
+    color: #ffcc66; /* warm amber-yellow */
+    text-shadow: 
+      0 0 5px #ff9966,
+      0 0 10px #ffcc66,
+      0 0 20px #ff9933,
+      0 0 40px #ff6600;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  

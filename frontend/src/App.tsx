@@ -21,9 +21,9 @@ function App() {
   return (
     <>
       <div>
-        <h1>Radio App</h1>
-        <p>Frontend is running!</p>
-        <p>Backend status: {message || 'Loading...'}</p>
+        <h1 className="glow-title">Vibe Radio</h1>
+        {/* <p>Frontend is running!</p>
+        <p>Backend status: {message || 'Loading...'}</p> */}
 
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
           <RadioTuner

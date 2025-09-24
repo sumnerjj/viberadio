@@ -1034,7 +1034,7 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
     if (staticAudioRef.current) {
       staticAudioRef.current.currentTime = 0;
       staticAudioRef.current.loop = true;
-      staticAudioRef.current.volume = 0.3; // Adjust volume as needed
+      staticAudioRef.current.volume = 1.0; // Adjust volume as needed
       staticAudioRef.current.play().catch(console.error);
     }
   };
