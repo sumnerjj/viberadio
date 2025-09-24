@@ -1199,7 +1199,7 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
     return minFreq + (normalizedAngle / angleRange) * (maxFreq - minFreq);
   };
 
-  // Get mouse angle relative to center of SVG
+  // Get mouse angle relative to center of dial
   const getMouseAngle = (event: MouseEvent | React.MouseEvent) => {
     // Use the dial container to get the correct bounding box
     const dialContainer = document.querySelector('.dial-container') as HTMLElement;
@@ -1212,11 +1212,16 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
     const y = event.clientY - rect.top - centerY;
     let angle = Math.atan2(y, x) * (180 / Math.PI);
 
-    // Normalize angle to our range
-    if (angle < -135) angle += 360;
-    if (angle > 135 && angle < 225) {
-      angle = angle < 180 ? 135 : -135;
-    }
+    // Add 90° to compensate for display rotation (so 0° is at top)
+    angle += 90;
+
+    // Normalize angle to [-180, 180] range first
+    while (angle > 180) angle -= 360;
+    while (angle < -180) angle += 360;
+
+    // Then apply the tuner range limits (-135° to +135°)
+    if (angle < -135) angle = -135;
+    if (angle > 135) angle = 135;
 
     return angle;
   };
@@ -1287,7 +1292,11 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
 
   // Calculate tuner needle position
   const tunerAngle = frequencyToAngle(currentFrequency);
-  const tunerRadian = (tunerAngle * Math.PI) / 180;
+    console.log('tunerAngle: ', tunerAngle);
+
+  // Rotate by -90° so 0° points up instead of right
+  const displayAngle = tunerAngle - 90;
+  const tunerRadian = (displayAngle * Math.PI) / 180;
   const tunerX = 150 + Math.cos(tunerRadian) * 80;
   const tunerY = 150 + Math.sin(tunerRadian) * 80;
 
