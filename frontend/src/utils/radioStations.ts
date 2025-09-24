@@ -1,5 +1,6 @@
 // Comprehensive radio station database for testing
-// Sources: SomaFM, Radio Paradise, Public Radio, Internet Radio, etc.
+// Sources: SomaFM, Radio Paradise, Public Radio, Internet Radio, Radio Browser API, etc.
+// Now includes 100+ curated stations plus additional stations from Radio Browser API
 
 export interface RadioStation {
   name: string;
@@ -136,5 +137,54 @@ export const RADIO_STATIONS: RadioStation[] = [
   { name: "Highway 61 Blues", url: "https://streaming.exclusive.radio/er/highway61/icecast.audio", genre: "Blues", country: "USA", language: "English" },
   { name: "Blues Radio UK", url: "https://stream.zeno.fm/f3fnpupf0f8uv", genre: "Blues", country: "UK", language: "English" },
 ];
+
+// Radio Browser API integration
+export async function fetchRadioBrowserStations(): Promise<RadioStation[]> {
+  try {
+    const base = "https://de1.api.radio-browser.info";
+    const url = `${base}/json/stations/search?hidebroken=true&is_https=true&order=clickcount&reverse=true&limit=200`;
+
+    const response = await fetch(url, {
+      headers: {
+        "User-Agent": "RadioApp/1.0",
+        "Content-Type": "application/json"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    return data.map((station: any): RadioStation => ({
+      name: station.name || "Unknown Station",
+      url: station.url_resolved || station.url,
+      genre: Array.isArray(station.tags) ? station.tags.join(", ") : (station.tags || "Unknown"),
+      country: station.country || "Unknown",
+      language: station.language || "Unknown",
+      tested: false,
+      working: false
+    }));
+  } catch (error) {
+    console.error('Failed to fetch stations from Radio Browser API:', error);
+    return [];
+  }
+}
+
+// Combined station list with Radio Browser API
+export async function getAllStations(): Promise<RadioStation[]> {
+  const radioBrowserStations = await fetchRadioBrowserStations();
+  const combinedStations = [...RADIO_STATIONS, ...radioBrowserStations];
+
+  // Remove duplicates based on URL
+  const uniqueStations = combinedStations.filter((station, index, array) =>
+    array.findIndex(s => s.url === station.url) === index
+  );
+
+  console.log(`Loaded ${uniqueStations.length} unique stations (${RADIO_STATIONS.length} curated + ${radioBrowserStations.length} from Radio Browser API)`);
+
+  return uniqueStations;
+}
 
 export default RADIO_STATIONS;

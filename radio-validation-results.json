@@ -1,0 +1,1524 @@
+{
+  "timestamp": "2025-09-24T01:22:12.077Z",
+  "totalTested": 208,
+  "working": 141,
+  "failed": 67,
+  "successRate": "67.8%",
+  "workingStations": [
+    {
+      "name": "Radio Paradise Main",
+      "url": "https://stream.radioparadise.com/mp3-128",
+      "genre": "Eclectic",
+      "country": "USA"
+    },
+    {
+      "name": "SomaFM Groove Salad",
+      "url": "https://ice1.somafm.com/groovesalad-256-mp3",
+      "genre": "Ambient",
+      "country": "USA"
+    },
+    {
+      "name": "KEXP",
+      "url": "https://kexp-mp3-128.streamguys1.com/kexp128.mp3",
+      "genre": "Alternative",
+      "country": "USA"
+    },
+    {
+      "name": "NTS Radio 1",
+      "url": "https://stream-relay-geo.ntslive.net/stream",
+      "genre": "Electronic",
+      "country": "UK"
+    },
+    {
+      "name": "FIP France",
+      "url": "https://direct.fipradio.fr/live/fip-midfi.mp3",
+      "genre": "Eclectic",
+      "country": "France"
+    },
+    {
+      "name": "MANGORADIO",
+      "url": "https://mangoradio.stream.laut.fm/mangoradio",
+      "genre": "music,variety",
+      "country": "Germany",
+      "language": "german"
+    },
+    {
+      "name": "Deutschlandfunk | DLF | MP3 128k",
+      "url": "https://d121.rndfnk.com/ard/dlf/01/mp3/128/stream.mp3?aggregator=web&cid=01FBPWZ12X2XN8SDSMBZ7X0ZTT&sid=337KhV1Ow7iY1zXh3zTupwSgwJv&token=7qDUiRCg0QQsLBqFaJHIbX1LcQ7zZWqJEnWk48PsyWs&tvf=OqUxUyIaaBhkMTIxLnJuZGZuay5jb20",
+      "genre": "culture,news,public service,information",
+      "country": "Germany",
+      "language": "german"
+    },
+    {
+      "name": "SWR3",
+      "url": "https://f141.rndfnk.com/ard/swr/swr3/live/mp3/128/stream.mp3?aggregator=web&cid=01FC1X5J7PN2N3YQPZYT8YDM9M&sid=337IV49cQLCVLmfmIaEvxtTrS92&token=K5P_P-zSCdPlh4mAIbB-co5Xjh2GyzyLUMH2fbmF8ho&tvf=NYY5bCUZaBhmMTQxLnJuZGZuay5jb20",
+      "genre": "news,pop,rock",
+      "country": "Germany",
+      "language": "german"
+    },
+    {
+      "name": "Vivid Bharti ",
+      "url": "https://air.pc.cdn.bitgravity.com/air/live/pbaudio001/playlist.m3u8",
+      "genre": "classical",
+      "country": "India",
+      "language": "Unknown"
+    },
+    {
+      "name": "REYFM - #original",
+      "url": "https://reyfm.stream37.radiohost.de/reyfm-original_mp3-192?upd-meta&upd-scheme=https&_art=dD0xNzU4NjU5NTg3JmQ9MDMwY2MwMDI4Y2IzZjc2ZmRmMjI",
+      "genre": "#original,fm,rey,reyfm",
+      "country": "Unknown",
+      "language": "Unknown"
+    },
+    {
+      "name": " Relax FM Chillout",
+      "url": "https://pub0201.101.ru/stream/trust/mp3/128/24?",
+      "genre": "chill,chillout,chillout+lounge",
+      "country": "The Russian Federation",
+      "language": "russian"
+    },
+    {
+      "name": "Sinar FM",
+      "url": "https://n08a-eu.rcs.revma.com/azatk0tbv4uvv/8_1ksmof3jo7vso02/playlist.m3u8",
+      "genre": "Unknown",
+      "country": "Malaysia",
+      "language": "Unknown"
+    },
+    {
+      "name": "CCTV-13新闻伴音",
+      "url": "https://piccpndali.v.myalicdn.com/audio/cctv13_2.m3u8",
+      "genre": "tv",
+      "country": "China",
+      "language": "chinese"
+    },
+    {
+      "name": "Radio Khatereh",
+      "url": "https://servidor22-5.brlogic.com:7160/live?source=website",
+      "genre": "pershian radio",
+      "country": "Islamic Republic Of Iran",
+      "language": "persian"
+    },
+    {
+      "name": "РАДИО ВАНЯ",
+      "url": "https://icecast-radiovanya.cdnvideo.ru/radiovanya",
+      "genre": "pop",
+      "country": "The Russian Federation",
+      "language": "russian"
+    },
+    {
+      "name": "France Inter",
+      "url": "https://stream.radiofrance.fr/franceinter/franceinter_hifi.m3u8?id=radiofrance",
+      "genre": "Unknown",
+      "country": "France",
+      "language": "Unknown"
+    },
+    {
+      "name": "Deutschlandfunk | DLF | OPUS 24k",
+      "url": "https://f111.rndfnk.com/ard/dlf/01/opus/24/stream.opus?aggregator=web&cid=01FBPWZ12X2XN8SDSMBZ7X0ZTT&sid=3374Zg89ujcJYVV67nAJkOM774v&token=_mYG19DZ-8SVv-hHs76AMCGdFJkltczNZ4ot0Dr9-kI&tvf=anDb-eUSaBhmMTExLnJuZGZuay5jb20",
+      "genre": "culture,news,public service,information",
+      "country": "Germany",
+      "language": "Unknown"
+    },
+    {
+      "name": "Radio 357",
+      "url": "https://n-11-21.dcs.redcdn.pl/sc/o2/radio357/live/radio357_pr.livx?preroll=0",
+      "genre": "adult contemporary",
+      "country": "Poland",
+      "language": "polish"
+    },
+    {
+      "name": " Radio Navahang",
+      "url": "https://navairan.com/;stream.nsv",
+      "genre": "middle eastern music,pop",
+      "country": "Islamic Republic Of Iran",
+      "language": "persian"
+    },
+    {
+      "name": "ERA FM",
+      "url": "https://n17a-eu.rcs.revma.com/crec9cmbv4uvv/23_11p2ghidfhj2d02/playlist.m3u8?rj-ttl=5&rj-tok=AAABlF2WiCgAJUPufokb6G0b3Q",
+      "genre": "Unknown",
+      "country": "Malaysia",
+      "language": "Unknown"
+    },
+    {
+      "name": "metro fm south Africa ",
+      "url": "https://25283.live.streamtheworld.com/METROFMAAC.aac?dist=triton-widget&tdsdk=js-2.9&swm=false&pname=tdwidgets&pversion=2.9&banners=none&burst-time=15&sbmid=541b37d8-153e-41d8-85b9-35e10d314d8c",
+      "genre": "Unknown",
+      "country": "South Africa",
+      "language": "engilsh"
+    },
+    {
+      "name": "RMC FR",
+      "url": "https://audio.bfmtv.com/rmcradio_128.mp3",
+      "genre": "france,info,sport,talk",
+      "country": "France",
+      "language": "french"
+    },
+    {
+      "name": "JOE",
+      "url": "https://icecast-qmusicnl-cdp.triple-it.nl/Joe_nl_high.aac",
+      "genre": "Unknown",
+      "country": "The Netherlands",
+      "language": "Unknown"
+    },
+    {
+      "name": "Bayern 3",
+      "url": "https://f121.rndfnk.com/ard/br/br3/live/mp3/128/stream.mp3?cid=01FBPVFWX7C216W6WY4M4M7MF7&sid=337GwPlAWhCdLlnb7KIimE1i37n&token=nkse3rSwQ9ewJefgAFNksMyL9f5UJDzM4ZkOY9fZKlU&tvf=ey8BlHIYaBhmMTIxLnJuZGZuay5jb20",
+      "genre": "pop",
+      "country": "Germany",
+      "language": "german"
+    },
+    {
+      "name": "Соловьёв LIVE",
+      "url": "https://solovievfm.hostingradio.ru/solovievfm128.aacp",
+      "genre": "politics,world news",
+      "country": "The Russian Federation",
+      "language": "Unknown"
+    },
+    {
+      "name": "DFM RUSSIAN DANCE",
+      "url": "https://dfm-dfmrusdance.hostingradio.ru/dfmrusdance96.aacp?0.9987259013359274",
+      "genre": "dance",
+      "country": "The Russian Federation",
+      "language": "russian"
+    },
+    {
+      "name": "ORF Hitradio Ö3 | HQ",
+      "url": "https://orf-live.ors-shoutcast.at/oe3-q2a",
+      "genre": "orf,pop",
+      "country": "Austria",
+      "language": "Unknown"
+    },
+    {
+      "name": "THR Gegar Pilihan #1 Pantai Timur",
+      "url": "https://n24a-eu.rcs.revma.com/cn0zcqsbv4uvv/36_1nbhrvq7qpz1h02/playlist.m3u8?rj-ttl=5&rj-tok=AAABmXbp-xwAEyQp1UeA-P_TrQ",
+      "genre": "#1 pilihan pantai timur,entertaining segments,mix genres",
+      "country": "Malaysia",
+      "language": "kelantanese malay,malay"
+    },
+    {
+      "name": "Hindi Gold Radio",
+      "url": "https://azuracast.vibesounds.in:8010/radio.mp3",
+      "genre": "Unknown",
+      "country": "India",
+      "language": "hindi"
+    },
+    {
+      "name": "Ukhozi FM S.A",
+      "url": "https://29073.live.streamtheworld.com:443/UKHOZIFMAAC_SC?dist=triton-widget&pname=tdwidgets",
+      "genre": "Unknown",
+      "country": "South Africa",
+      "language": "Unknown"
+    },
+    {
+      "name": "Русское Радио",
+      "url": "https://rusradio.hostingradio.ru/rusradio96.aacp",
+      "genre": "misc",
+      "country": "The Russian Federation",
+      "language": "Unknown"
+    },
+    {
+      "name": "Rádio Mix 106.3 FM",
+      "url": "https://26673.live.streamtheworld.com:443/MIXFM_SAOPAULOAAC.aac",
+      "genre": "chr,pop-rock,youth",
+      "country": "Brazil",
+      "language": "portuguese"
+    },
+    {
+      "name": "CLASSIC HITS RADIO 70 80 DiscoFunk ModernSoul Boogie",
+      "url": "https://radiopanther.radiolebowski.com/play",
+      "genre": "1970s,1980s,70's,70s,70s disco,80,80's,80s,classic hits",
+      "country": "The United States Of America",
+      "language": "english"
+    },
+    {
+      "name": "Qmusic Belgium",
+      "url": "https://icecast-qmusicbe-cdp.triple-it.nl/qmusic.aac",
+      "genre": "Unknown",
+      "country": "Belgium",
+      "language": "dutch"
+    },
+    {
+      "name": "Qmusic",
+      "url": "https://icecast-qmusicnl-cdp.triple-it.nl/Qmusic_nl_live_96.mp3",
+      "genre": "Unknown",
+      "country": "The Netherlands",
+      "language": "Unknown"
+    },
+    {
+      "name": "DFM Дискач 90-х",
+      "url": "https://dfm-disc90.hostingradio.ru/disc9096.aacp",
+      "genre": "90-е,eurodance,nostalgia",
+      "country": "The Russian Federation",
+      "language": "russian"
+    },
+    {
+      "name": "VOV Giao thông Hà Nội",
+      "url": "https://play.vovgiaothong.vn/live/gthn/playlist.m3u8",
+      "genre": "music,news,talk,traffic,traffic information,traffic news",
+      "country": "Vietnam",
+      "language": "vietnamese"
+    },
+    {
+      "name": "SomaFM Groove Salad (128k MP3)",
+      "url": "https://ice5.somafm.com/groovesalad-128-mp3",
+      "genre": "ambient,chillout,downtempo,groove,lounge,sleep",
+      "country": "The United States Of America",
+      "language": "english"
+    },
+    {
+      "name": "Europe 1",
+      "url": "https://europe1.lmn.fm/europe1.aac",
+      "genre": "aac,news,talk",
+      "country": "France",
+      "language": "french"
+    },
+    {
+      "name": " # RdMix Classic Rock 70s 80s 90s",
+      "url": "https://cast1.torontocast.com:4610/stream",
+      "genre": "60s,60s and 70s.,70's,70er,70s,80's,80er,80s,90's,90er,90s,blues,blues rock,classic blues,classic hits,classic hits 60s 70a 80s,classic rock,classic rock  50's 60's 70's 80's 90's,classic rock music,classic rock oldies,classic rock oldies soul,classic rock; alternative rock indie,country,entretenimiento,fm,hard rock,high quality audio,hits,local radio,melodic hard rock,music,music 70s 80s 90s,musica,oldies,pop rock,public radio,radio,real classic rock,rhythm and blues,rock,soft rock",
+      "country": "Canada",
+      "language": "english"
+    },
+    {
+      "name": "KRAL FM",
+      "url": "https://dygedge2.radyotvonline.net/kralfm/playlist.m3u8?listenerid=29d0a6a85b59cea2ca801b70d2a3ebaf&awparams=companionAds%3Atrue",
+      "genre": "Unknown",
+      "country": "Türkiye",
+      "language": "Unknown"
+    },
+    {
+      "name": "La 100 - 99.9 FM - Grupo Clarín - Buenos Aires, Argentina",
+      "url": "https://27443.live.streamtheworld.com:443/FM999_56.mp3",
+      "genre": "99.9 fm,argentina,buenos aires,entretenimiento,español,estación,fm,grupo clarín,la 100,latinoamérica,magazines,moi merino,música,radio,suramérica",
+      "country": "Argentina",
+      "language": "spanish"
+    },
+    {
+      "name": "Спутник",
+      "url": "https://icecast-rian.cdnvideo.ru/voicerus",
+      "genre": "news,talk",
+      "country": "The Russian Federation",
+      "language": "russian"
+    },
+    {
+      "name": "OLDIE ANTENNE",
+      "url": "https://s1-webradio.oldie-antenne.de/oldie-antenne?aw_0_1st.playerid=OldieAntenneWebPlayer",
+      "genre": "60's,70's,80s,90s,goldies,oldies,pop",
+      "country": "Germany",
+      "language": "Unknown"
+    },
+    {
+      "name": "Aspen 102.3",
+      "url": "https://27353.live.streamtheworld.com:443/ASPEN.mp3",
+      "genre": "Unknown",
+      "country": "Argentina",
+      "language": "Unknown"
+    },
+    {
+      "name": "Sky Radio",
+      "url": "https://28573.live.streamtheworld.com:443/SKYRADIO.mp3",
+      "genre": "Unknown",
+      "country": "The Netherlands",
+      "language": "Unknown"
+    },
+    {
+      "name": "Deutschlandfunk | DLF | AAC 192k",
+      "url": "https://d111.rndfnk.com/ard/dlf/01/aac/192/stream.aac?aggregator=web&cid=01FBPWZ12X2XN8SDSMBZ7X0ZTT&sid=337PtDcVa0mmIr5aI77dPYAfZhB&token=TgbyejZtRYIUevMbssb-mrLrH554jmnvDPJTtYjPglM&tvf=j2tdX3YcaBhkMTExLnJuZGZuay5jb20",
+      "genre": "culture,news,public service,information",
+      "country": "Germany",
+      "language": "german"
+    },
+    {
+      "name": "CNN",
+      "url": "https://tunein.cdnstream1.com/2868_96.mp3",
+      "genre": "news",
+      "country": "The United States Of America",
+      "language": "english"
+    },
+    {
+      "name": "Rádio Saudade FM 99.7",
+      "url": "https://27433.live.streamtheworld.com:443/SAUDADE_FMAAC.aac",
+      "genre": "adult,classic hits,flashback",
+      "country": "Brazil",
+      "language": "portuguese"
+    },
+    {
+      "name": "DAMAR TURK FM",
+      "url": "https://live.radyositesihazir.com:10997/",
+      "genre": "Unknown",
+      "country": "Türkiye",
+      "language": "french,german,turkish"
+    },
+    {
+      "name": "Соловьёв FM",
+      "url": "https://solovievfm.hostingradio.ru/solovievfm32.aacp",
+      "genre": "news,politics,talk",
+      "country": "The Russian Federation",
+      "language": "Unknown"
+    },
+    {
+      "name": "DZBB Super Radyo 594 kHz",
+      "url": "https://stream.gmanews.tv/ioslive/livestream/playlist.m3u8",
+      "genre": "news,talk",
+      "country": "The Philippines",
+      "language": "filipino"
+    },
+    {
+      "name": "FM4 | ORF | HQ",
+      "url": "https://orf-live.ors-shoutcast.at/fm4-q2a",
+      "genre": "orf,alternative mainstream,electronic,pop,rock,public radio",
+      "country": "Austria",
+      "language": "Unknown"
+    },
+    {
+      "name": "AIR Fm Gold Delhi",
+      "url": "https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio005/hlspbaudio00564kbps.m3u8",
+      "genre": "Unknown",
+      "country": "India",
+      "language": "Unknown"
+    },
+    {
+      "name": "Radio Italia Solo Musica Italiana",
+      "url": "https://radioitaliasmi.akamaized.net/hls/live/2093120/RISMI/stream01/streamPlaylist.m3u8",
+      "genre": "italian pop",
+      "country": "Italy",
+      "language": "italian"
+    },
+    {
+      "name": "Новое радио",
+      "url": "https://live.novoeradio.by:444/live/novoeradio_aac128/icecast.audio",
+      "genre": "classical",
+      "country": "Belarus",
+      "language": "Unknown"
+    },
+    {
+      "name": "LOS 40 Principales España",
+      "url": "https://22593.live.streamtheworld.com:443/LOS40.mp3",
+      "genre": "music,pop,top 40",
+      "country": "Spain",
+      "language": "spanish"
+    },
+    {
+      "name": "Jacaranda FM",
+      "url": "https://live.jacarandafm.com/jacarandalow.aac",
+      "genre": "adult contemporary,pop,regional radio,talk",
+      "country": "South Africa",
+      "language": "english"
+    },
+    {
+      "name": " \tROCKANTENNE Alternative (mp3)",
+      "url": "https://s6-webradio.rockantenne.de/alternative/stream/mp3",
+      "genre": "Unknown",
+      "country": "Germany",
+      "language": "german"
+    },
+    {
+      "name": "98.3 Love Radio Dagupan",
+      "url": "https://loveradiodagupan.radioca.st/",
+      "genre": "pop",
+      "country": "The Philippines",
+      "language": "Unknown"
+    },
+    {
+      "name": "WDR4",
+      "url": "https://d141.rndfnk.com/ard/wdr/wdr4/live/mp3/128/stream.mp3?cid=01FBS0CPYNPWV23HTXYQE8R7AR&sid=335sgTAsacVlIzrWemRYvLJODcO&token=CWdkqIGr3ho4fty8pukSd2hLqNN5z2bG3YNtkUOSJJk&tvf=AjrqE77xZxhkMTQxLnJuZGZuay5jb20",
+      "genre": "oldies",
+      "country": "Germany",
+      "language": "german"
+    },
+    {
+      "name": "Radio Aashiqanaa",
+      "url": "https://sonic.onlineaudience.co.uk/8114/stream",
+      "genre": "90's,bollywood,hindi,romantic",
+      "country": "India",
+      "language": "Unknown"
+    },
+    {
+      "name": "Radio RMF MAXXX",
+      "url": "https://rs9-krk2-cyfronet.rmfstream.pl/RMFMAXXX48",
+      "genre": "misc",
+      "country": "Poland",
+      "language": "Unknown"
+    },
+    {
+      "name": "MOR 101.9 FM",
+      "url": "https://22253.live.streamtheworld.com:443/MORFM_S01.mp3",
+      "genre": "Unknown",
+      "country": "The Philippines",
+      "language": "Unknown"
+    },
+    {
+      "name": "Deutschlandfunk Kultur | DLF | MP3 128k",
+      "url": "https://f111.rndfnk.com/ard/dlf/02/mp3/128/stream.mp3?aggregator=web&cid=01FBPXKD7AYM1NKT2H60NVGHEQ&sid=337XWoE29hXfx5wtKlnb7xQdCS5&token=DsI5uXDaIyahgVo4f3rWyMkYwGyrUjyQgQGKXpT2Io8&tvf=zkkhF-QfaBhmMTExLnJuZGZuay5jb20",
+      "genre": "culture,news,public service,information",
+      "country": "Germany",
+      "language": "german"
+    },
+    {
+      "name": "Комсомольская правда",
+      "url": "https://kpradio.hostingradio.ru:8000/64",
+      "genre": "news,talk",
+      "country": "The Russian Federation",
+      "language": "russian"
+    },
+    {
+      "name": "Radio Record - Russian Mix",
+      "url": "https://radiorecord.hostingradio.ru/rus96.aacp",
+      "genre": "Unknown",
+      "country": "The Russian Federation",
+      "language": "Unknown"
+    },
+    {
+      "name": "Радио Свобода",
+      "url": "https://rfe-ingest.akamaized.net/hls/live/2035254/axia04/playlist.m3u8",
+      "genre": "новости,политика,разговорное",
+      "country": "Czechia",
+      "language": "язык: русский"
+    },
+    {
+      "name": "Power POP",
+      "url": "https://listen.powerapp.com.tr/powerpop/128/chunks.m3u8",
+      "genre": "00s,70s,80s,90s,pop,rock",
+      "country": "Türkiye",
+      "language": "turkish"
+    },
+    {
+      "name": "# TOP 100 CLUB CHARTS - DANCE & DJ MIX RADIO - 24 HOURS NON-STOP MUSIC @ TikTok Hits, Ibiza House, Sunset Lounge, Melodic Music, EDM, Deep House, Dance Music, Techno & Hypertechno, Rave Charts, Top 40 Charts, Latin, Reggaeton Music, Moombahton, Urban Hits, HipHop, Party & Clubbing Radio, Trending Chartmusic, R&B, Urban, Mixtape - & LIVE DJ SET ",
+      "url": "https://rautemusik.stream43.radiohost.de/breakz?ref=radiobrowser-top100-clubcharts&upd-meta&upd-scheme=https&_art=dD0xNzU4NjU0OTc5JmQ9YTkwNTMxODg0YWJmY2M0NDA3OTM",
+      "genre": "#,#charts,#club,#djmix,#mashup,#radio,#top100,00s,90s,beachclub,charts,chill house,chillout,chillout+lounge,club,club dance,club dance electronic house trance,club house,clubbing,dance house club  electronic techhouse,deejay,deep house,deep music,dj,dj mixes,dj remix,dj sets,edm,electro,electro techno,electronic,funky house,future house,hardstyle/handsup/edm,hip hop,hip-hop,hiphop,house,hypertechno,ibiza,latin,latin music,latin pop,lounge music,mashup,melodic house,minimal,minimal techno,moombahton,pop,progressive house,r&b,r&b/urban,rap hiphop rnb,rave,reggaeton,remixed,remixes,singlecharts,soulful house,sundowner,sunset,tech house,techno,top 40,top100,vocal deep",
+      "country": "Germany",
+      "language": "english,german"
+    },
+    {
+      "name": "100.5 Bukedde Fm",
+      "url": "https://stream.hydeinnovations.com:2020/stream/bukeddefm/stream",
+      "genre": "news variety",
+      "country": "Uganda",
+      "language": "luganda"
+    },
+    {
+      "name": "NDR 2",
+      "url": "https://f131.rndfnk.com/ard/ndr/ndr2/niedersachsen/mp3/128/stream.mp3?cid=01FBQ2CWDYWJHGF4QAJ0SVV730&sid=3368Ie6i0PRN6gsIVKih6lnjjKh&token=k9XjJ3ufyx9SUHf7hqrd0k3tdPOFxwj0lnxEcU0Ft6c&tvf=jRAc1L_4ZxhmMTMxLnJuZGZuay5jb20",
+      "genre": "pop",
+      "country": "Germany",
+      "language": "german"
+    },
+    {
+      "name": "JOE",
+      "url": "https://icecast-qmusicbe-cdp.triple-it.nl/joe.mp3",
+      "genre": "oldies",
+      "country": "Belgium",
+      "language": "dutch"
+    },
+    {
+      "name": "\tRadio Record - Russian Gold",
+      "url": "https://radiorecord.hostingradio.ru/russiangold96.aacp",
+      "genre": "pop,russian",
+      "country": "The Russian Federation",
+      "language": "russian"
+    },
+    {
+      "name": "RFM",
+      "url": "https://rfm.lmn.fm/rfm.mp3",
+      "genre": "Unknown",
+      "country": "France",
+      "language": "Unknown"
+    },
+    {
+      "name": "Mirchi Top 20",
+      "url": "https://2.mystreaming.net:443/uber/bollywoodnow/icecast.audio",
+      "genre": "bollywood,hindi,mirchi,pop",
+      "country": "India",
+      "language": "hindi"
+    },
+    {
+      "name": "On sports FM",
+      "url": "https://carina.streamerr.co:2020/stream/OnSportFM",
+      "genre": "Unknown",
+      "country": "Egypt",
+      "language": "Unknown"
+    },
+    {
+      "name": "Radio Nowy Świat",
+      "url": "https://go-audio.toya.net.pl/63214",
+      "genre": "soft adult contemporary",
+      "country": "Poland",
+      "language": "polish"
+    },
+    {
+      "name": " Hip Hop Workout Radio",
+      "url": "https://cloud.revma.ihrhls.com/zc7785?rj-org=n30a-e2&rj-ttl=5&rj-tok=AAABmXizeXIAQ-ZxkhNRnXBypw",
+      "genre": "Unknown",
+      "country": "The United States Of America",
+      "language": "Unknown"
+    },
+    {
+      "name": "RTL 102.5",
+      "url": "https://StreamCdnF39-dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist_audio.m3u8",
+      "genre": "local,news,varied",
+      "country": "Italy",
+      "language": "italian"
+    },
+    {
+      "name": "Alpha FM 101.7 MHz (São Paulo - SP)",
+      "url": "https://24483.live.streamtheworld.com:443/RADIO_ALPHAFM_ADP.aac",
+      "genre": "light,misc,portuguese music",
+      "country": "Brazil",
+      "language": "brazilian portuguese"
+    },
+    {
+      "name": "法国国际广播电台",
+      "url": "https://rfienchinois64k.ice.infomaniak.ch/rfienchinois-64.mp3",
+      "genre": "Unknown",
+      "country": "France",
+      "language": "Unknown"
+    },
+    {
+      "name": "ONDA CERO (España)",
+      "url": "https://25633.live.streamtheworld.com:443/OCAAC/HLS/playlist.m3u8?dist=Otros-Agregadores&ttag=program%3Ael-colegio-invisible",
+      "genre": "noticias y música",
+      "country": "Spain",
+      "language": "castellano. español"
+    },
+    {
+      "name": "Retro Rádió",
+      "url": "https://icast.connectmedia.hu/5001/live.mp3",
+      "genre": "pop,rock,retro,80s,90s,2000s",
+      "country": "Hungary",
+      "language": "hungarian"
+    },
+    {
+      "name": "EuroDance 90 radio",
+      "url": "https://stream-eurodance90.fr/radio/8000/128.mp3?1627933323",
+      "genre": "dancefloor,electronic dance music,eurodance,pop dance,pop music",
+      "country": "France",
+      "language": "french"
+    },
+    {
+      "name": "Lesedi",
+      "url": "https://27743.live.streamtheworld.com:443/LESEDIAAC_SC",
+      "genre": "Unknown",
+      "country": "South Africa",
+      "language": "Unknown"
+    },
+    {
+      "name": "Melody FM Malaysia",
+      "url": "https://n09.rcs.revma.com/2u1n6dtbv4uvv/9_11l86ncot7z1w02/playlist.m3u8",
+      "genre": "classical",
+      "country": "Malaysia",
+      "language": "Unknown"
+    },
+    {
+      "name": "Radio Mars",
+      "url": "https://radiomars.ice.infomaniak.ch/radiomars-128.mp3",
+      "genre": "Unknown",
+      "country": "Morocco",
+      "language": "Unknown"
+    },
+    {
+      "name": "Deutschlandfunk | DLF | AAC 48k",
+      "url": "https://d141.rndfnk.com/ard/dlf/01/aac/48/stream.aac?aggregator=web&cid=01FBPWZ12X2XN8SDSMBZ7X0ZTT&sid=33787oR5jyAncgPoAzqEhkisBEr&token=YQfYSh6IVVkTM-HqJbrUN8ARfDAGMRxKVOFDu84WbOc&tvf=ZLoq7H0UaBhkMTQxLnJuZGZuay5jb20",
+      "genre": "culture,news,public service,information",
+      "country": "Germany",
+      "language": "german"
+    },
+    {
+      "name": "ESKA ROCK",
+      "url": "https://ic2.smcdn.pl/5380-1.mp3#ESKA_ROCK",
+      "genre": "Unknown",
+      "country": "Poland",
+      "language": "Unknown"
+    },
+    {
+      "name": "Café del Mar",
+      "url": "https://streams.radio.co/se1a320b47/listen",
+      "genre": "chillout,ibiza,lounge",
+      "country": "Spain",
+      "language": "Unknown"
+    },
+    {
+      "name": "ORF Hitradio Ö3",
+      "url": "https://ors-sn03.ors-shoutcast.at/oe3-q1a",
+      "genre": "orf,pop",
+      "country": "Austria",
+      "language": "Unknown"
+    },
+    {
+      "name": "Bossa Jazz Brasil",
+      "url": "https://centova5.transmissaodigital.com:20104/live",
+      "genre": "bossa nova,jazz,mpb",
+      "country": "Brazil",
+      "language": "brazilian portuguese"
+    },
+    {
+      "name": "98.7 Mutundwe Christian Fellowship ",
+      "url": "https://streams.radio.co/s79fbbb432/listen",
+      "genre": "christian",
+      "country": "Uganda",
+      "language": "luganda"
+    },
+    {
+      "name": "ESKA - Gorąca 20",
+      "url": "https://ic1.smcdn.pl/6130-1.mp3",
+      "genre": "dance,pop,pop music,rock",
+      "country": "Poland",
+      "language": "polish"
+    },
+    {
+      "name": "Cool fahrenheit",
+      "url": "https://coolism-web.cdn.byteark.com/;stream/1",
+      "genre": "Unknown",
+      "country": "Thailand",
+      "language": "thai"
+    },
+    {
+      "name": "SHA3BY FM",
+      "url": "https://radio95.radioca.st/;",
+      "genre": "Unknown",
+      "country": "Egypt",
+      "language": "Unknown"
+    },
+    {
+      "name": "MBC FM",
+      "url": "https://minisw.imbc.com/dsfm/_definst_/sfm.stream/playlist.m3u8?_lsu_sa_=6D21351153303C34104F75B03351DD4E958139E50D0202E43FC0C9a4B6B331464Fa233723F02D44790D33F7158b771DE7AA717BA3A848CA24627B4C57F6240C2070319B5EE5140E15F7A86F7959C6349B1F12766F66DCB2A395E83FDAFD1B8C298F4073B1E35E327770117C8CA7D4610",
+      "genre": "Unknown",
+      "country": "The Republic Of Korea",
+      "language": "korean"
+    },
+    {
+      "name": "Мелодии Века 96.2fm",
+      "url": "https://radiorecord.hostingradio.ru/sd9096.aacp",
+      "genre": "70-90-х,ретро",
+      "country": "Belarus",
+      "language": "english,russian"
+    },
+    {
+      "name": "Bayern 2",
+      "url": "https://f141.rndfnk.com/ard/br/br2/live/mp3/128/stream.mp3?cid=01HNCWQ25NS4FWXXH2R91H67V1&sid=336zhjdb8bEFBueLNEZcdJPiLBw&token=Y0u_BhbceqquDXQ3lz7vL6Bahi485K3QX8Ori11LqG0&tvf=A7fhj7YQaBhmMTQxLnJuZGZuay5jb20",
+      "genre": "information",
+      "country": "Germany",
+      "language": "german"
+    },
+    {
+      "name": "ДИСКОТЕКА 90-Х",
+      "url": "https://radiorecord.hostingradio.ru/sd9096.aacp?0968d4a7",
+      "genre": "Unknown",
+      "country": "The Russian Federation",
+      "language": "Unknown"
+    },
+    {
+      "name": "538 Radio",
+      "url": "https://27793.live.streamtheworld.com:443/RADIO538.mp3",
+      "genre": "Unknown",
+      "country": "The Netherlands",
+      "language": "Unknown"
+    },
+    {
+      "name": "DZRH",
+      "url": "https://a4.asurahosting.com:6540/radio.mp3",
+      "genre": "Unknown",
+      "country": "The Philippines",
+      "language": "Unknown"
+    },
+    {
+      "name": "BBC News HD (720P)",
+      "url": "https://vs-hls-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/t=3840/v=pv14/b=5070016/main.m3u8",
+      "genre": "england,english,london,news,uk,world news",
+      "country": "The United Kingdom Of Great Britain And Northern Ireland",
+      "language": "english"
+    },
+    {
+      "name": "新闻联播",
+      "url": "https://rfienchinois64k.ice.infomaniak.ch//rfienchinois-64.mp3",
+      "genre": "news",
+      "country": "China",
+      "language": "chinese"
+    },
+    {
+      "name": "Бизнес FM",
+      "url": "https://bfm.hostingradio.ru:9075/fm",
+      "genre": "business,business news,business programs",
+      "country": "The Russian Federation",
+      "language": "russian"
+    },
+    {
+      "name": "SWR1 BW",
+      "url": "https://f131.rndfnk.com/ard/swr/swr1/bw/mp3/128/stream.mp3?aggregator=web&cid=01FC1X3K2Z71SMDKMEC68DM7MW&sid=336RfUovvyChIwsyjUd3OqJdiUs&token=J79YoCHYlRd21VJgWnt7KAQCIFtjqzUE-ktwVkG775A&tvf=cAM_xXABaBhmMTMxLnJuZGZuay5jb20",
+      "genre": "Unknown",
+      "country": "Germany",
+      "language": "Unknown"
+    },
+    {
+      "name": "Absolut Relax",
+      "url": "https://edge67.live-sm.absolutradio.de/absolut-relax?__cb=130270101023249",
+      "genre": "Unknown",
+      "country": "Germany",
+      "language": "Unknown"
+    },
+    {
+      "name": "MSNBC",
+      "url": "https://tunein.cdnstream1.com/3511_96.mp3",
+      "genre": "news",
+      "country": "The United States Of America",
+      "language": "english"
+    },
+    {
+      "name": "Alger Chaine 3",
+      "url": "https://webradio.tda.dz/Chaine3_64K.mp3",
+      "genre": "Unknown",
+      "country": "Algeria",
+      "language": "Unknown"
+    },
+    {
+      "name": "kontrafunk",
+      "url": "https://icecast.multhielemedia.de/listen/kontrafunk/radio.mp3",
+      "genre": "information,news,news talk,talk radio",
+      "country": "Germany",
+      "language": "german"
+    },
+    {
+      "name": "FUN Radio",
+      "url": "https://streamer-01.rtl.fr/fun-1-44-128?aw_0_1st.broadcast_type=streaming&aw_0_1st.source_type=external&aw_0_1st.platform=external&aw_0_1st.media_category=fm&aw_0_1st.station=fun&aw_0_1st.program=fun",
+      "genre": "dance,electro,latino",
+      "country": "France",
+      "language": "french"
+    },
+    {
+      "name": "Rádio Antena 1 94.7 FM",
+      "url": "https://antenaone.crossradio.com.br/stream/1;",
+      "genre": "adult,flashback",
+      "country": "Brazil",
+      "language": "portuguese"
+    },
+    {
+      "name": "KISS FM",
+      "url": "https://bbkissfm.kissfmradio.cires21.com:8443/bbkissfm/mp3/icecast.audio?wmsAuthSign=c2VydmVyX3RpbWU9MDkvMjMvMjAyNSAxMToyMzowMSBBTSZoYXNoX3ZhbHVlPWYxaHp3OTA3c1NIMGw3Qkk0TmYzc0E9PSZ2YWxpZG1pbnV0ZXM9MTQ0MCZpZD01NTc2ODI1Ng==",
+      "genre": "2000s,80's,80s,90's,90s,music,musica,música,pop music,spanish,spanish pop",
+      "country": "Spain",
+      "language": "spanish"
+    },
+    {
+      "name": "Rádio Band FM 96.1 FM",
+      "url": "https://24383.live.streamtheworld.com:443/BANDFM_SPAAC",
+      "genre": "pop",
+      "country": "Brazil",
+      "language": "portuguese"
+    },
+    {
+      "name": " - DJ & CLUB CHARTS ---> Club Classics, Festival-Hits, Remixes, Single Charts, Mashups, DJ Sets, Club Edits, Dancefloor, Underground, Nightlife, Party Anthems, Ibiza, Miami, Clubbing, Festival, Remix, Mashup, DJ, EDM,  RAVE, Dance, Urban, Latin, Beachclub, Lounge",
+      "url": "https://rautemusik.stream39.radiohost.de/breakz?ref=rb-djclubcharts&upd-meta&upd-scheme=https&_art=dD0xNzU4NjYwMTgyJmQ9ODZjM2NlYzZkMDFkMTc4NzQ3ZDI",
+      "genre": "#bewirbdich!,#mashup,beach,best music,brandnew,charts,chillout+lounge,club,clubbing,community radio,dance smashes,dj,dj remix,dj sets,edm,edm radioshows,hard techno,hiphop,hits,hot ac,houseparty,ibiza,ibiza classics,ibiza club,lounge,mashup,minimal techno,non-stop music,party,partycharts,promodj,radio,rave,remixed,singlecharts,sunset,tech house,techno,top 100,top 40,top charts,top hits,underground,urban",
+      "country": "Germany",
+      "language": "english,german"
+    },
+    {
+      "name": "RTL",
+      "url": "https://hls.rtl.fr/YzdmNTVmM2NjYTNhYjBmNzZlY2Q5ODY1YzQ5NDA5ZDUuMTc1ODY5NDkzNg~~/radio/webOU6MESMYnoHzvZJe8ie5Mi/national/rtl/short/index.m3u8",
+      "genre": "généraliste",
+      "country": "France",
+      "language": "Unknown"
+    },
+    {
+      "name": "Radio Republika",
+      "url": "https://ssl-1.radiotvrepublika.pl:12698/stream",
+      "genre": "news,news talk,politics,talk",
+      "country": "Poland",
+      "language": "polish"
+    },
+    {
+      "name": "Super Fm",
+      "url": "https://25633.live.streamtheworld.com:443/SUPER_FM_SC",
+      "genre": "pop",
+      "country": "Türkiye",
+      "language": "Unknown"
+    },
+    {
+      "name": "Спокойное радио",
+      "url": "https://listen1.myradio24.com/6262",
+      "genre": "ambient,chillout,easy listening,jazz,lounge,moscow,relax,sounds of nature",
+      "country": "The Russian Federation",
+      "language": "russian"
+    },
+    {
+      "name": "ThobelaFM",
+      "url": "https://22653.live.streamtheworld.com:443/THOBELAAAC.aac",
+      "genre": "Unknown",
+      "country": "South Africa",
+      "language": "Unknown"
+    },
+    {
+      "name": "Bayern 1 Oberbayern",
+      "url": "https://f121.rndfnk.com/ard/br/br1/obb/mp3/128/stream.mp3?cid=01FB9ME7567MEQ5G72EVEEVVCS&sid=337h3OTRDFMYOdHajOiazRIz9vV&token=UjD3hs7wJulkEJf-YC5BdrBckwZmucq61xZ_MmOWfjo&tvf=p9SYDyokaBhmMTIxLnJuZGZuay5jb20",
+      "genre": "oldies",
+      "country": "Germany",
+      "language": "german"
+    },
+    {
+      "name": "LOS40 Classic",
+      "url": "https://27743.live.streamtheworld.com:443/LOS40_CLASSIC.mp3",
+      "genre": "pop rock",
+      "country": "Spain",
+      "language": "spanish"
+    },
+    {
+      "name": "Campursari FM Jakarta",
+      "url": "https://streaming.campursarifm.com/listen/campursari/campursari892",
+      "genre": "campursari,dangdut,koplo",
+      "country": "Indonesia",
+      "language": "indonesian,javanese"
+    },
+    {
+      "name": "راديو مكان  - Kan Israel Makan",
+      "url": "https://27743.live.streamtheworld.com:443/RADIO_MAKAN.mp3?dist=bynetredirect",
+      "genre": "ilstations",
+      "country": "Israel",
+      "language": "arabic"
+    },
+    {
+      "name": "Convoy en vivo",
+      "url": "https://live.convoynetwork.com/stream",
+      "genre": "classic rock,latin music,rock",
+      "country": "Mexico",
+      "language": "spanish"
+    },
+    {
+      "name": "Chante France",
+      "url": "https://chantefrance.ice.infomaniak.ch/chantefrance-128.mp3",
+      "genre": "Unknown",
+      "country": "France",
+      "language": "french"
+    },
+    {
+      "name": "Q music Nederland",
+      "url": "https://icecast-qmusicnl-cdp.triple-it.nl/Qmusic_nl_live_high.aac",
+      "genre": "pop",
+      "country": "The Netherlands",
+      "language": "Unknown"
+    },
+    {
+      "name": "Chillout Ibiza FM",
+      "url": "https://edge3.peta.live365.net/b05055_128mp3",
+      "genre": "chillout,relaxing",
+      "country": "The United Kingdom Of Great Britain And Northern Ireland",
+      "language": "english"
+    },
+    {
+      "name": "إذاعة البهجة",
+      "url": "https://webradio.tda.dz/ElBahdja_64K.mp3",
+      "genre": "international",
+      "country": "Algeria",
+      "language": "Unknown"
+    },
+    {
+      "name": "Mettaswara Koplo",
+      "url": "https://mettaswara.com:8700//koplo",
+      "genre": "koplo",
+      "country": "Indonesia",
+      "language": "javanese"
+    },
+    {
+      "name": "Kiss Fm",
+      "url": "https://live.kissfm.ro/kissfm.aacp",
+      "genre": "dance,dance pop,house,pop,pop music,top 40",
+      "country": "Romania",
+      "language": "romanian"
+    },
+    {
+      "name": "Bollywood 2000's ",
+      "url": "https://2.mystreaming.net/uber/bollywood2000s/icecast.audio",
+      "genre": "bollywood",
+      "country": "India",
+      "language": "hindi"
+    },
+    {
+      "name": " # 70s 80s 90s RdMix Network",
+      "url": "https://cast1.torontocast.com:1830/stream",
+      "genre": "00's,00s,192kbps,1970s,1980s,1990s,70's,70s,80's,80s,90's,90s,charts,classic hits,classic rock,dance,entretenimiento,fm,high quality audio,hits,local news,local radio,misc,music,musica,news,oldies,ontario,pop,pop music,pop rock,public radio,radio,rock,talk,top 100,top hits,top40,toronto,webradio",
+      "country": "Canada",
+      "language": "english"
+    },
+    {
+      "name": "Deutschlandfunk Nova | DLF | MP3 128k",
+      "url": "https://f121.rndfnk.com/ard/dlf/03/mp3/128/stream.mp3?aggregator=web&cid=01FBPXNCN1ZWEVWJYXG6ZP2TVH&sid=337OqhCjhvIenu6SNR8FI5CMB4t&token=jqoqrmTzV470dTsbvMfVrwJOr1mt7lb7q7J4zfxNXYY&tvf=BLcMCP8baBhmMTIxLnJuZGZuay5jb20",
+      "genre": "culture,news,public service,information",
+      "country": "Germany",
+      "language": "Unknown"
+    },
+    {
+      "name": "VOX FM 128",
+      "url": "https://ic2.smcdn.pl/3990-1.mp3",
+      "genre": "Unknown",
+      "country": "Poland",
+      "language": "polish"
+    },
+    {
+      "name": "BR24",
+      "url": "https://d131.rndfnk.com/ard/br/br24/live/mp3/128/stream.mp3?cid=01FBPVVJDPGF0BJ5TAJ8Z7JSX9&sid=337h5uZZqFJ1GVqwvTGQwlVzrYn&token=6RU1AnKUubFSiIxRvLhaxNNrh7Kf7aQeyCnBzyudxzM&tvf=ULt7xC4kaBhkMTMxLnJuZGZuay5jb20",
+      "genre": "news",
+      "country": "Germany",
+      "language": "german"
+    },
+    {
+      "name": "Radio Sportiva ",
+      "url": "https://sportiva.inmystream.it/stream/sportiva",
+      "genre": "sport",
+      "country": "Italy",
+      "language": "italian"
+    },
+    {
+      "name": "Klassik Radio - Live",
+      "url": "https://klassikr.streamabc.net/klr-krdnational-mp3-192-4099384?listenerid=8d8b347398fd2032234f695208016a8a",
+      "genre": "classical",
+      "country": "Germany",
+      "language": "german"
+    },
+    {
+      "name": "RFM",
+      "url": "https://23603.live.streamtheworld.com/RFMAAC.aac",
+      "genre": "64kbps",
+      "country": "Portugal",
+      "language": "portuguese"
+    },
+    {
+      "name": "Aaj Tak News Radio Live",
+      "url": "https://feeds.intoday.in/aajtak/api/master.m3u8",
+      "genre": "Unknown",
+      "country": "India",
+      "language": "hindi"
+    }
+  ],
+  "failedStations": [
+    {
+      "name": "WFMU",
+      "url": "https://stream0.wfmu.org/freeform-128k",
+      "genre": "Freeform",
+      "country": "USA",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Jazz24",
+      "url": "https://live.wostreaming.net/direct/ppm-jazz24mp3-ibc3",
+      "genre": "Jazz",
+      "country": "USA",
+      "error": "getaddrinfo ENOTFOUND live.wostreaming.net"
+    },
+    {
+      "name": "Classical MPR",
+      "url": "https://classical.streamguys1.com/classical-128k",
+      "genre": "Classical",
+      "country": "USA",
+      "error": "Hostname/IP does not match certificate's altnames: Host: classical.streamguys1.com. is not in the cert's altnames: DNS:*.streamguys.com, DNS:streamguys.com"
+    },
+    {
+      "name": "BBC Radio 1",
+      "url": "https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one",
+      "genre": "Pop",
+      "country": "UK",
+      "error": "HTTP 410"
+    },
+    {
+      "name": "Radio Swiss Jazz",
+      "url": "https://stream.srg-ssr.ch/m/rsj/mp3_128",
+      "genre": "Jazz",
+      "country": "Switzerland",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "Classic Vinyl HD",
+      "url": "https://icecast.walmradio.com:8443/classic",
+      "genre": "1930,1940,1950,1960,beautiful music,big band,classic hits,crooners,easy,easy listening,hd,jazz,light orchestral,lounge,oldies,orchestral,otr,relaxation,strings,swing,unwind,walm",
+      "country": "The United States Of America",
+      "language": "english",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Adroit Jazz Underground",
+      "url": "https://icecast.walmradio.com:8443/jazz",
+      "genre": "avant-garde,bebop,big band,bop,combos,contemporary,contemporary jazz,cool,cool jazz,free jazz,fusion,hard bop,hd,mainstream,mainstream jazz,modern,modern big band,post-bop,straight-ahead,walm,west coast",
+      "country": "The United States Of America",
+      "language": "english",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Bollywood Gaane Purane",
+      "url": "https://stream-141.zeno.fm/6n6ewddtad0uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiI2bjZld2RkdGFkMHV2IiwiaG9zdCI6InN0cmVhbS0xNDEuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiWmhfS2JPdGVTRGVYRC1BNVE1QUZoQSIsImlhdCI6MTc1ODY2NzQwNiwiZXhwIjoxNzU4NjY3NDY2fQ.jY9F2k3JFH39k2vfpjM4l5dOxRbfS5a1-QAH_RhHMlA",
+      "genre": "Unknown",
+      "country": "India",
+      "language": "Unknown",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "WALM - Old Time Radio",
+      "url": "https://icecast.walmradio.com:8443/otr",
+      "genre": "78,78-rpm,78rpm,classic,comedy,drama,easy listening,musical,mystery,old time radio,otr,sci-fi,v-disc,vintage,walm",
+      "country": "The United States Of America",
+      "language": "Unknown",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Slow Rock 90'",
+      "url": "https://stream-156.zeno.fm/hiut6cwfoneuv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJoaXV0NmN3Zm9uZXV2IiwiaG9zdCI6InN0cmVhbS0xNTYuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiZVd1cDdIMmFRdS1seDZoQ21mUTlVZyIsImlhdCI6MTc1ODYzNDk3NSwiZXhwIjoxNzU4NjM1MDM1fQ.6rFba1ljKSeaVr4Gvzx7l17tu07imJ_YLm6hhBqhqos",
+      "genre": "90's,classic rock,general,rock,slow rock",
+      "country": "Malaysia",
+      "language": "malay",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "Christmas Vinyl HD",
+      "url": "https://icecast.walmradio.com:8443/christmas",
+      "genre": "christian,christmas,easy listening,hd,holiday,otr,seasonal,vintage,vinyl,walm",
+      "country": "The United States Of America",
+      "language": "english",
+      "error": "Request timeout"
+    },
+    {
+      "name": "Radio Mirchi Hindi",
+      "url": "https://eu8.fastcast4u.com/proxy/clyedupq/stream",
+      "genre": "Unknown",
+      "country": "India",
+      "language": "hindi",
+      "error": "Parse Error: Expected HTTP/"
+    },
+    {
+      "name": "Red FM 93.5",
+      "url": "https://stream-174.zeno.fm/q97eczydqrhvv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJxOTdlY3p5ZHFyaHZ2IiwiaG9zdCI6InN0cmVhbS0xNzQuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoicDc4ZmRZM1FUeS1DZGJvMDNVOVFJUSIsImlhdCI6MTc1ODY3MjUxOSwiZXhwIjoxNzU4NjcyNTc5fQ.7cp_BJQ1ZoeGEXptW5uh7hB-MTauhRXRUlVytEF1XMY",
+      "genre": "Unknown",
+      "country": "India",
+      "language": "hindi",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "RADIO BOLLYWOOD 90s",
+      "url": "https://stream-158.zeno.fm/rm4i9pdex3cuv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJybTRpOXBkZXgzY3V2IiwiaG9zdCI6InN0cmVhbS0xNTguemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiVDhBY1FYUnNSZ3VOc2ljbTctVXYtdyIsImlhdCI6MTc1ODYxNTY0MSwiZXhwIjoxNzU4NjE1NzAxfQ.Pth-mi5ePywA1uTkZXksjQmON52pcHEkq96dqPnWffc",
+      "genre": "Unknown",
+      "country": "India",
+      "language": "Unknown",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "WALM HD",
+      "url": "https://icecast.walmradio.com:8443/walm",
+      "genre": "christian,christian music,contemporary christian,jesus",
+      "country": "The United States Of America",
+      "language": "english",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "latamangeshkarradio",
+      "url": "https://stream-161.zeno.fm/87xam8pf7tzuv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiI4N3hhbThwZjd0enV2IiwiaG9zdCI6InN0cmVhbS0xNjEuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiR0NUd1Q5TUhSMi1sanZ2SkVFRDY3dyIsImlhdCI6MTc1ODY1MDYyNywiZXhwIjoxNzU4NjUwNjg3fQ.Yv4IqcdrcyfLUQpM2fy-bEOaegaZD4wZww1LtDwSEUY",
+      "genre": "Unknown",
+      "country": "India",
+      "language": "hindi",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "WALM 2 HD",
+      "url": "https://icecast.walmradio.com:8443/walm2",
+      "genre": "choral,christian,christian music,classical music,hymns,orchestral,talk,talk radio,traditional christian",
+      "country": "The United States Of America",
+      "language": "Unknown",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "ایران‎  Radio Liberty (Iran) (official stream)",
+      "url": "https://n09.radiojar.com/cp13r2cpn3quv?rj-ttl=5&rj-tok=AAABmXknebYA6HMxouN6-IjwJA",
+      "genre": "Unknown",
+      "country": "Islamic Republic Of Iran",
+      "language": "irani,iranian",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Fox News Radio",
+      "url": "https://prod-54-159-73-9.amperwave.net/foxnewsradio-foxnewsradioaac-imc?session-id=771ea2d4e59d878a33612e5bb2ccd1de&source=fnr.web",
+      "genre": "news",
+      "country": "The United States Of America",
+      "language": "american english",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "WALM - Old Time Radio Opus",
+      "url": "https://icecast.walmradio.com:8443/otr_opus",
+      "genre": "78,78-rpm,78rpm,classic,comedy,drama,easy listening,musical,mystery,old time radio,opus,otr,sci-fi,v-disc,vintage,walm",
+      "country": "The United States Of America",
+      "language": "Unknown",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Adroit Jazz Underground HD Opus",
+      "url": "https://icecast.walmradio.com:8443/jazz_opus",
+      "genre": "avant-garde,bebop,big band,bop,combos,contemporary,contemporary jazz,cool,cool jazz,free jazz,fusion,hard bop,hd,mainstream,mainstream jazz,modern,modern big band,opus,post-bop,straight-ahead,walm,west coast",
+      "country": "The United States Of America",
+      "language": "Unknown",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "新闻听天下",
+      "url": "https://lhttp.qtfm.cn/live/20500169/64k.mp3",
+      "genre": "internet radio,news",
+      "country": "China",
+      "language": "chinese",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Heart 80s",
+      "url": "https://media-ssl.musicradio.com/Heart80sMP3",
+      "genre": "80s,national,pop,public radio,variety",
+      "country": "The United Kingdom Of Great Britain And Northern Ireland",
+      "language": "english",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "怀集音乐之声",
+      "url": "https://lhttp.qingting.fm/live/4804/64k.mp3",
+      "genre": "music",
+      "country": "China",
+      "language": "chinese",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "DYHP 612 RMN Cebu",
+      "url": "https://de3.amfmph.com/ssl/rmncebu?mp=%2Fstream",
+      "genre": "Unknown",
+      "country": "The Philippines",
+      "language": "Unknown",
+      "error": "Parse Error: Expected HTTP/"
+    },
+    {
+      "name": "Cope Directo 2",
+      "url": "https://flucast07-o-cloud.flumotion.com/cope/net2.mp3",
+      "genre": "deportes,radio",
+      "country": "Spain",
+      "language": "spanish",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Star FM Manila",
+      "url": "https://stream-143.zeno.fm/g1pmt17nz9duv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJnMXBtdDE3bno5ZHV2IiwiaG9zdCI6InN0cmVhbS0xNDMuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiV3k0YlV0cklUNDJqTFlmdTNoZ1RjUSIsImlhdCI6MTc1ODYyNTU3NiwiZXhwIjoxNzU4NjI1NjM2fQ.HiRj5G7guJMEA5sOTShDA6uhtq0-W12w0EJWUDXE_Fg",
+      "genre": "Unknown",
+      "country": "The Philippines",
+      "language": "Unknown",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "90sonceagainradio",
+      "url": "https://stream-159.zeno.fm/rm4i9pdex3cuv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJybTRpOXBkZXgzY3V2IiwiaG9zdCI6InN0cmVhbS0xNTkuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiU1RIc3dTdEFSRlNOZ1c1UFo0NFZzZyIsImlhdCI6MTc1ODY3MjY2MCwiZXhwIjoxNzU4NjcyNzIwfQ.oJW-LkhQurbuB3izjyeWB7M_-g56wtyeX29jBD75zIo",
+      "genre": "Unknown",
+      "country": "India",
+      "language": "hindi",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "WALM 2 HD Opus",
+      "url": "https://icecast.walmradio.com:8443/walm2_opus",
+      "genre": "choral,christian,christian music,classical music,hymns,opus,orchestral,talk,talk radio,traditional christian",
+      "country": "The United States Of America",
+      "language": "english",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "parsa",
+      "url": "https://parsa.awsvps.com/stream",
+      "genre": "classical",
+      "country": "Islamic Republic Of Iran",
+      "language": "Unknown",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Radio Simba",
+      "url": "https://www.radiosimba.ug/stream",
+      "genre": "Unknown",
+      "country": "Uganda",
+      "language": "luganda",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "kishorekumarradio",
+      "url": "https://stream-169.zeno.fm/0ghtfp8ztm0uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiIwZ2h0ZnA4enRtMHV2IiwiaG9zdCI6InN0cmVhbS0xNjkuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiMnh0RkZ4YmJSc0dFaEhkdThQeTMzUSIsImlhdCI6MTc1ODYxNzUzOCwiZXhwIjoxNzU4NjE3NTk4fQ.DV9asoWS909ZdxOvHr7JdLSHx2r8de_B2L-OAEMp8sY",
+      "genre": "Unknown",
+      "country": "India",
+      "language": "hindi",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "Christmas Vinyl HD Opus",
+      "url": "https://icecast.walmradio.com:8443/christmas_opus",
+      "genre": "christian,christmas,easy listening,hd,holiday,opus,otr,seasonal,vintage,vinyl,walm",
+      "country": "The United States Of America",
+      "language": "Unknown",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Radio 9090 90.9",
+      "url": "https://9090streaming.mobtada.com/9090FMEGYPT",
+      "genre": "Unknown",
+      "country": "Egypt",
+      "language": "arabic",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Hindi Retro",
+      "url": "https://stream-145.zeno.fm/v2zfmxef798uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJ2MnpmbXhlZjc5OHV2IiwiaG9zdCI6InN0cmVhbS0xNDUuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiRzc5QV9MalVTWFM5UnhJUDBGbUFFQSIsImlhdCI6MTc1ODY2MTE5NywiZXhwIjoxNzU4NjYxMjU3fQ.kPAx3VcDAa_p4GvBDrnWj0vS7gbpmhMRXDexXfBLpdE",
+      "genre": "Unknown",
+      "country": "India",
+      "language": "hindi",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "TokFM",
+      "url": "https://radiostream.pl/tuba10-1.mp3",
+      "genre": "Unknown",
+      "country": "Poland",
+      "language": "polish",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Rock Rock Kapak",
+      "url": "https://stream-153.zeno.fm/q6xy0didftcvv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJxNnh5MGRpZGZ0Y3Z2IiwiaG9zdCI6InN0cmVhbS0xNTMuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiWVBRTDlCODZTeEd4TkVUTTBlU3dtZyIsImlhdCI6MTc1ODYxMjc1NSwiZXhwIjoxNzU4NjEyODE1fQ.y5BkhGug26b_SeotHOBWS77dJwz-LofNNE_G3EJSVIg",
+      "genre": "blues rock,classic hits,classic rock",
+      "country": "Malaysia",
+      "language": "malay",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "CNR-1 中国之声",
+      "url": "https://lhttp.qtfm.cn/live/15318317/64k.mp3",
+      "genre": "news",
+      "country": "China",
+      "language": "chinese",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Slow Turk",
+      "url": "https://radyo.duhnet.tv/ak_dtvh_slowturk",
+      "genre": "Unknown",
+      "country": "Türkiye",
+      "language": "turkish",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "国际新闻",
+      "url": "https://lhttp.qtfm.cn/live/20500172/64k.mp3",
+      "genre": "information,news",
+      "country": "China",
+      "language": "chinese",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Classic Vinyl HD Opus",
+      "url": "https://icecast.walmradio.com:8443/classic_opus",
+      "genre": "1930,1940,1950,1960,beautiful music,big band,classic hits,crooners,easy,easy listening,hd,jazz,light orchestral,lounge,oldies,opus,orchestral,otr,relaxation,strings,swing,unwind,walm",
+      "country": "The United States Of America",
+      "language": "english",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Goldy Evergreen",
+      "url": "https://stream-148.zeno.fm/n2fd0edh9k8uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJuMmZkMGVkaDlrOHV2IiwiaG9zdCI6InN0cmVhbS0xNDguemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiRzFyTGMxdGFUQTJPM0pXNlR3NzlHUSIsImlhdCI6MTc1ODYyNzgwMiwiZXhwIjoxNzU4NjI3ODYyfQ.7tb7p7Jt5A_4VcVt11VcfzDl1__VNhWnj_fWdzS6e6c",
+      "genre": "Unknown",
+      "country": "India",
+      "language": "Unknown",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "Radio Hungama Bollywood Dil Se",
+      "url": "https://stream-159.zeno.fm/143d7gty24zuv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiIxNDNkN2d0eTI0enV2IiwiaG9zdCI6InN0cmVhbS0xNTkuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoibmxGN2ZKRm9UeVdCbTUzZkNfaHh6USIsImlhdCI6MTc1ODY3NTIwMCwiZXhwIjoxNzU4Njc1MjYwfQ.-3GadWXVVDOahfNMVqEPZtnHXYb4vSDNPfmswxHuESs",
+      "genre": "Unknown",
+      "country": "India",
+      "language": "hindi",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "Madhur Sangeet Radio",
+      "url": "https://stream-164.zeno.fm/yv2k0dp18vzuv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJ5djJrMGRwMTh2enV2IiwiaG9zdCI6InN0cmVhbS0xNjQuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiOXdFVzMzRm9UTGlSeTN2MEt6T3RGZyIsImlhdCI6MTc1ODY1NTIwNywiZXhwIjoxNzU4NjU1MjY3fQ.ib7mgpbfi2T5TN_TS6s3HtcYDGwV24LLRnpUvdmafHU",
+      "genre": "Unknown",
+      "country": "India",
+      "language": "hindi",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "Русское радио Минск 98.9 FM",
+      "url": "https://stream.rusradio.by:8443/live128",
+      "genre": "belarus,minsk,music,pop,russkoe radio",
+      "country": "Belarus",
+      "language": "russian",
+      "error": "HTTP 400"
+    },
+    {
+      "name": " #100 BEST IBIZA DEEP HOUSE",
+      "url": "https://stream-156.zeno.fm/lwv6zqgtv1dtv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJsd3Y2enFndHYxZHR2IiwiaG9zdCI6InN0cmVhbS0xNTYuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoicWo5TlFTR3VSNm0xbDJYZzBNTlNLUSIsImlhdCI6MTc1ODY1OTg4NCwiZXhwIjoxNzU4NjU5OTQ0fQ.sPFAsy2kbmtoWVJm1PCGI3GiDq_X6k8vWSYwKdYHOos",
+      "genre": "chill,chill house,chillout,chillout+lounge,club dance,club house,community radio,dance,deep,deep house,electronic,fm,high quality audio,hits,house,music,news,public radio,radio,soulful house",
+      "country": "Canada",
+      "language": "english",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "radiobaingan",
+      "url": "https://stream-166.zeno.fm/eyxg23ky4x8uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJleXhnMjNreTR4OHV2IiwiaG9zdCI6InN0cmVhbS0xNjYuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiVHBZOWhCTC1UQzYwa3BGdjl3dzg3ZyIsImlhdCI6MTc1ODY3MjIyNSwiZXhwIjoxNzU4NjcyMjg1fQ.hDUB16SZaxe7MoulVXJXlTsQWXsOPmNzL4ZsGlLXg6Q",
+      "genre": "Unknown",
+      "country": "India",
+      "language": "hindi",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "bollywood 90s radio",
+      "url": "https://stream-157.zeno.fm/rm4i9pdex3cuv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJybTRpOXBkZXgzY3V2IiwiaG9zdCI6InN0cmVhbS0xNTcuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiSXpISGM1ZUJUdVctSVFsczFhVGIxdyIsImlhdCI6MTc1ODY1ODkxMiwiZXhwIjoxNzU4NjU4OTcyfQ.jJ-Udxk9rBqkSLP4-6WpmRjpcKG9DbEZpKWEvWVsf0k",
+      "genre": "music",
+      "country": "India",
+      "language": "hindi",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "Win Radio Manila",
+      "url": "https://stream-172.zeno.fm/2ss1hgnu6hhvv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiIyc3MxaGdudTZoaHZ2IiwiaG9zdCI6InN0cmVhbS0xNzIuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoibnRuNG50YkpSZE9LcnhWUjV2UkFZQSIsImlhdCI6MTc1ODYxMDUwNywiZXhwIjoxNzU4NjEwNTY3fQ.4NNGG_wFzOhp5xRkxe4rzp_rUgCWw1ALzEhVzto_KKg",
+      "genre": "Unknown",
+      "country": "The Philippines",
+      "language": "Unknown",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "Gold",
+      "url": "https://media-ssl.musicradio.com/GoldMP3",
+      "genre": "classic hits,national,oldies,public radio,variety",
+      "country": "The United Kingdom Of Great Britain And Northern Ireland",
+      "language": "english",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "Rafi hit songs",
+      "url": "https://stream-169.zeno.fm/0zkr7x8ztm0uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiIwemtyN3g4enRtMHV2IiwiaG9zdCI6InN0cmVhbS0xNjkuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiOXcweDhqQzRSTC1KREVpeXd6MUZuUSIsImlhdCI6MTc1ODY3NDgxNiwiZXhwIjoxNzU4Njc0ODc2fQ.V1fNkLOimIiUfGzw6UCKmksDEBzXGps_pRcWPWmgSB8",
+      "genre": "classic hits 60s 70a 80s",
+      "country": "India",
+      "language": "hindi",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "ZBS Zodiak FM",
+      "url": "https://ice31.securenetsystems.net/0079",
+      "genre": "entertainment,local music,news,sport",
+      "country": "Malawi",
+      "language": "english",
+      "error": "socket hang up"
+    },
+    {
+      "name": "RadioSimorgh",
+      "url": "https://stream-157.zeno.fm/jl8n7thgcdftv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJqbDhuN3RoZ2NkZnR2IiwiaG9zdCI6InN0cmVhbS0xNTcuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiQXk3Zmd2bkxRWDIza1I5R0U1ZHAxUSIsImlhdCI6MTc1ODY0Mjc0NCwiZXhwIjoxNzU4NjQyODA0fQ.ynR7nTNZeeJAKBl_V6r1ILT82FExpSQ6vKt_rM-PIAQ",
+      "genre": "international",
+      "country": "Islamic Republic Of Iran",
+      "language": "Unknown",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "Anty Radio",
+      "url": "https://an01.cdn.eurozet.pl/ant-web.mp3?t=1713710188361?redirected=01",
+      "genre": "Unknown",
+      "country": "Poland",
+      "language": "Unknown",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "РадиусFM",
+      "url": "https://stream2.datacenter.by/radiusfm_main",
+      "genre": "Unknown",
+      "country": "Belarus",
+      "language": "russian,язык: русский",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "92.3 Radyo5 True FM",
+      "url": "https://qp-pldt-live-grp-05-prod.akamaized.net/out/u/radyo5_qp.m3u8",
+      "genre": "Unknown",
+      "country": "The Philippines",
+      "language": "Unknown",
+      "error": "Request timeout"
+    },
+    {
+      "name": "Heart 90s",
+      "url": "https://media-ssl.musicradio.com/Heart90sMP3",
+      "genre": "90s,national,pop,public radio,variety",
+      "country": "The United Kingdom Of Great Britain And Northern Ireland",
+      "language": "english",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "Anime Para Ti",
+      "url": "https://stream-154.zeno.fm/qpn8mkt8c4duv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJxcG44bWt0OGM0ZHV2IiwiaG9zdCI6InN0cmVhbS0xNTQuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiQTJxUUZUdWxRai1vd0ROQ2VSdFdYdyIsImlhdCI6MTc1ODY3MjUxNiwiZXhwIjoxNzU4NjcyNTc2fQ.ftB1vmDdFKUj0pv8zwa48JpijT_4REYRqu2JNYxFK4Y",
+      "genre": "anime,anime openings,jpop,music",
+      "country": "Japan",
+      "language": "japanese",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "Sheger FM 102.1",
+      "url": "https://stream-165.zeno.fm/y91n1vtbaw5tv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJ5OTFuMXZ0YmF3NXR2IiwiaG9zdCI6InN0cmVhbS0xNjUuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoidmpqQWVDTGJSV0NKSnJLaTUxNVdfZyIsImlhdCI6MTc1ODY2OTk1MSwiZXhwIjoxNzU4NjcwMDExfQ.6zibSVYQ-qN46u_y-injwV5nLcd37IZ3jGfX36SmM1U",
+      "genre": "Unknown",
+      "country": "Ethiopia",
+      "language": "Unknown",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "Kiss Radio - 128MP3",
+      "url": "https://icecast1.play.cz/kissdelta128.mp3",
+      "genre": "Unknown",
+      "country": "Czechia",
+      "language": "czech",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Heart Dance",
+      "url": "https://media-ssl.musicradio.com/HeartDanceMP3",
+      "genre": "dance,national,pop,public radio,variety",
+      "country": "The United Kingdom Of Great Britain And Northern Ireland",
+      "language": "english",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "Bombo Radyo Iloilo",
+      "url": "https://stream-150.zeno.fm/gzudz59nz9duv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJnenVkejU5bno5ZHV2IiwiaG9zdCI6InN0cmVhbS0xNTAuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiWEdnNDkxeXVRV0t1STNENnVqdTZ6dyIsImlhdCI6MTc1ODYzNDA5MSwiZXhwIjoxNzU4NjM0MTUxfQ.0R_PjGy37-zum5jTc4xvF_rW2YaQJM5f8NhVV8KR_2g",
+      "genre": "news",
+      "country": "The Philippines",
+      "language": "filipino",
+      "error": "HTTP 405"
+    },
+    {
+      "name": "ZING BOLERO",
+      "url": "https://vnno-ne-3-tf-multi-playlist-zmp3.zmdcdn.me/BJ7DyJjfG_E/zhls/playback-realtime/audio/5bace800d4453d1b6454/audio.m3u8",
+      "genre": "pop",
+      "country": "Vietnam",
+      "language": "Unknown",
+      "error": "HTTP 404"
+    },
+    {
+      "name": "Fantasy Italo Radio",
+      "url": "https://italo.live-streams.nl/fantasy",
+      "genre": "80s,disco,high enery,italo,italodisco,spacesynth",
+      "country": "The Netherlands",
+      "language": "Unknown",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "Sana’a Radio راديو صنعاء",
+      "url": "https://dc5.serverse.com/proxy/pbmhbvxs/stream",
+      "genre": "Unknown",
+      "country": "Yemen",
+      "language": "arabic",
+      "error": "Parse Error: Expected HTTP/"
+    },
+    {
+      "name": "- 0 N - 70s on Radio",
+      "url": "https://0n-70s.radionetz.de/0n-70s.mp3",
+      "genre": "70er,70s,oldies,pop",
+      "country": "Germany",
+      "language": "german",
+      "error": "HTTP 400"
+    },
+    {
+      "name": "go",
+      "url": "https://stream-163.zeno.fm/v5kxmagseg0uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJ2NWt4bWFnc2VnMHV2IiwiaG9zdCI6InN0cmVhbS0xNjMuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiMGwyUDU0cGFRSENFdVJHTzRUY0doZyIsImlhdCI6MTc1ODY1MTUxMywiZXhwIjoxNzU4NjUxNTczfQ.4oPxa_BhziVl7XsuDWXdUAd6l8uu77tTB5WjYIIv8Ss",
+      "genre": "donya",
+      "country": "Islamic Republic Of Iran",
+      "language": "persian",
+      "error": "HTTP 405"
+    }
+  ]
+}

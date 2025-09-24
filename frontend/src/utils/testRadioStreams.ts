@@ -256,4 +256,53 @@ export async function testAllRadioStations(stations: RadioStation[]): Promise<Te
   return results;
 }
 
+// Utility function to test expanded station list with Radio Browser API
+export async function testExpandedStationList(): Promise<TestResult[]> {
+  const { getAllStations } = await import('./radioStations');
+  const allStations = await getAllStations();
+
+  console.log(`🎵 Testing ${allStations.length} stations from combined sources...`);
+
+  const tester = new RadioStreamTester();
+  const results = await tester.testAllStations(allStations, 3); // Lower concurrency for larger list
+
+  console.log(tester.generateReport());
+
+  // Generate TypeScript code for working stations
+  const workingStations = tester.getWorkingStations();
+  const stationMapCode = generateStationMapCode(workingStations);
+
+  console.log('\n🚀 WORKING STATIONS FOR RADIO TUNER:');
+  console.log('=====================================');
+  console.log(stationMapCode);
+
+  return results;
+}
+
+// Generate TypeScript code for RadioTuner component
+function generateStationMapCode(workingStations: RadioStation[]): string {
+  const frequencies = [550, 560, 570, 580, 590, 600, 610, 620, 630, 640, 650, 660, 670, 680, 690, 700, 710, 720, 730, 740, 750, 760, 770, 780, 790, 800, 810, 820, 830, 840, 850, 860, 870, 880, 890, 900, 910, 920, 930, 940, 950, 960, 970, 980, 990, 1000, 1010, 1020, 1030, 1040, 1050, 1060, 1070, 1080, 1090, 1100, 1110, 1120, 1130, 1140, 1150, 1160, 1170, 1180, 1190, 1200, 1210, 1220, 1230, 1240, 1250, 1260, 1270, 1280, 1290, 1300, 1310, 1320, 1330, 1340, 1350, 1360, 1370, 1380, 1390, 1400, 1410, 1420, 1430, 1440, 1450, 1460, 1470, 1480, 1490, 1500, 1510, 1520, 1530, 1540, 1550, 1560, 1570, 1580, 1590, 1600];
+
+  let code = 'const stationMap: Record<number, StationInfo> = {\n';
+
+  const stationsToUse = workingStations.slice(0, Math.min(workingStations.length, frequencies.length));
+
+  stationsToUse.forEach((station, index) => {
+    const frequency = frequencies[index];
+    const fallbackUrl = station.fallbackUrl ? `\"${station.fallbackUrl}\"` : 'undefined';
+
+    code += `  ${frequency}: {\n`;
+    code += `    name: \"${station.name.replace(/"/g, '\\"')}\",\n`;
+    code += `    url: \"${station.url}\",\n`;
+    code += `    fallbackUrl: ${fallbackUrl},\n`;
+    code += `    genre: \"${station.genre}\",\n`;
+    code += `    country: \"${station.country}\"\n`;
+    code += `  },\n`;
+  });
+
+  code += '};\n';
+
+  return code;
+}
+
 export default RadioStreamTester;
