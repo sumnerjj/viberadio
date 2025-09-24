@@ -1004,24 +1004,25 @@ export const RadioTuner: React.FC<RadioTunerProps> = ({
         setErrorMessage('');
         setCurrentStation(station);
 
-        // Auto-play if radio is currently playing (including during dragging)
-        if (isPlaying) {
-          console.log('🎵 Auto-playing new station since radio is currently playing');
-          playStation(station);
-        }
+        // Auto-play new station (like a real radio)
+        console.log('🎵 Auto-playing new station');
+        playStation(station);
       }
     }, isDragging ? 50 : 300); // Shorter debounce while dragging for responsiveness
 
     return () => clearTimeout(debounceTimer);
   }, [currentFrequency, currentStation, isPlaying, isDragging]);
 
-  // Initialize station on component mount
+  // Initialize station on component mount and auto-play
   useEffect(() => {
     console.log('🚀 RadioTuner component mounted. Initial frequency:', currentFrequency);
     const station = findNearestStation(currentFrequency);
     if (station && !currentStation) {
       console.log('🎯 Setting initial station:', station.name);
       setCurrentStation(station);
+      // Auto-play the initial station
+      console.log('🎵 Auto-playing initial station');
+      playStation(station);
     }
   }, []);
 
