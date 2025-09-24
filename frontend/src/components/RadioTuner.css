@@ -190,8 +190,14 @@
     inset 0 -1px 1px rgba(139, 105, 20, 0.2),
     0 0 15px rgba(212, 175, 55, 0.15),
     0 0 30px rgba(212, 175, 55, 0.08);
-  min-width: 200px;
-  max-width: 280px;
+  /* Fixed dimensions to prevent jumping */
+  width: 280px;
+  height: 60px;
+  /* Ensure consistent box sizing */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .station-name {
@@ -228,13 +234,18 @@
   font-family: 'Courier New', monospace;
   font-size: 0.6rem;
   color: #ff6b35;
-  margin-top: 0.3rem;
+  margin-top: 0.2rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   text-shadow:
     0 0 2px rgba(255, 107, 53, 0.6),
     0 1px 1px rgba(0, 0, 0, 0.8);
   animation: error-pulse 2s ease-in-out infinite;
+  /* Ensure error message fits within fixed height */
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @keyframes error-pulse {
@@ -355,7 +366,9 @@
 
   .station-info {
     padding: 0.5rem 0.8rem;
-    min-width: 180px;
+    /* Fixed dimensions for mobile */
+    width: 200px;
+    height: 50px;
   }
 
   .station-name {
